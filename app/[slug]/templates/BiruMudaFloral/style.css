@@ -1,0 +1,166 @@
+.outer-container {
+  background-color: white !important;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.main-mobile-frame {
+  background-color: white !important;
+  box-shadow: 0 0 50px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.cover-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  transition: transform 1.2s cubic-bezier(0.7, 0, 0.3, 1);
+  background-size: cover;
+  background-position: center;
+}
+
+.cover-section.opened {
+  transform: translateY(-100%);
+  pointer-events: none;
+}
+
+/* Custom Scrollbar for wishes */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 3px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(30, 58, 95, 0.05);
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(30, 58, 95, 0.1);
+  border-radius: 10px;
+}
+
+.audio-btn {
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: #1e3a5f;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  left: calc(50% - (450px / 2) + 24px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 450px) {
+  .audio-btn {
+    left: 24px;
+  }
+}
+
+.audio-spinning {
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+/* Custom Button */
+.btn-blue-muda {
+  background: #1e3a5f !important;
+  color: white !important;
+  border-radius: 50px !important;
+  font-weight: bold !important;
+  letter-spacing: 0.1em !important;
+  text-transform: uppercase !important;
+  font-size: 10px !important;
+  padding: 15px 30px !important;
+  box-shadow: 0 5px 15px rgba(30, 58, 95, 0.2) !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-blue-muda:hover {
+  background: #0b5c6e !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(11, 92, 110, 0.3) !important;
+}
+
+/* Ampersand style */
+.ampersand-text {
+  font-size: 4rem;
+  color: #c9a84c;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.ampersand-text::before,
+.ampersand-text::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 1px;
+  background: #c9a84c;
+  opacity: 0.3;
+}
+
+.ampersand-text::before {
+  left: -50px;
+}
+
+.ampersand-text::after {
+  right: -50px;
+}
+
+/* Utility to flip elements */
+.flip-x {
+  transform: scaleX(-1);
+}
+
+/* Background image bleed to hide any potential gaps */
+main > section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,101 @@
+html {
+    scroll-behavior: smooth;
+}
+
+.rustic-outer-container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #f5f5dc; /* Beige background for desktop */
+}
+
+.rustic-mobile-frame {
+    width: 100%;
+    max-width: 450px;
+    min-height: 100vh;
+    background-color: #4B3621; /* Dark wood color */
+    position: relative;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+}
+
+/* Scrollbar Hide */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.rustic-btn-primary {
+    background: #D4AF37;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.rustic-btn-primary:hover {
+    background: #B8860B;
+    transform: translateY(-2px);
+}
+
+.rustic-audio-btn {
+    position: fixed;
+    bottom: 120px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #4B3621;
+    color: #D4AF37;
+    display: flex;
+    items-center: center;
+    justify-content: center;
+    z-index: 1000;
+    border: 2px solid #D4AF37;
+}
+
+.rustic-audio-spinning {
+    animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.rustic-nav-bottom {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 400px;
+    background: rgba(75, 54, 33, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 9999;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.rustic-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.rustic-nav-item.active {
+    color: #D4AF37;
+}

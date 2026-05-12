@@ -9,9 +9,30 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@better-auth/core": "^1.6.2",
+    "@better-fetch/fetch": "^1.1.21",
+    "@hookform/resolvers": "^5.2.2",
+    "@prisma/client": "^6.19.3",
+    "apexcharts": "^5.10.6",
+    "better-auth": "^1.6.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.38.0",
+    "lucide-react": "^1.8.0",
+    "nanostores": "^1.2.0",
     "next": "16.2.3",
+    "prisma": "^6.19.3",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-apexcharts": "^2.1.0",
+    "react-dom": "19.2.4",
+    "react-hook-form": "^7.72.1",
+    "sonner": "^2.0.7",
+    "stripe": "^22.0.1",
+    "tailwind-merge": "^3.5.0",
+    "xlsx": "^0.18.5",
+    "zod": "^4.3.6"
+  },
+  "prisma": {
+    "seed": "npx tsx prisma/seed.ts"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

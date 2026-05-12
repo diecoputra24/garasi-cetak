@@ -1,0 +1,517 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat:wght@100..900&family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap');
+
+:root {
+  --inv-blue-deep: #1e3a5f;
+  --inv-blue-mid: #2c5282;
+  --inv-blue-soft: #5a7fa5;
+  --inv-blue-pale: #dce8f2;
+  --inv-gold: #c9a84c;
+  --inv-gold-light: #e8d5a0;
+  --inv-cream: #f7f3ee;
+  --inv-bg: #eef2f7;
+  --inv-text: #1a2a3a;
+  --inv-text-light: #5a6a7a;
+  --mobile-width: 450px;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+  background-color: white !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== LAYOUT ===== */
+.outer-container {
+  min-height: 100vh;
+  width: 100%;
+  background-color: white !important;
+  display: flex;
+  justify-content: center;
+}
+
+.main-mobile-frame {
+  width: 100%;
+  max-width: var(--mobile-width);
+  min-height: 100vh;
+  position: relative;
+  box-shadow: 0 0 80px rgba(0, 0, 0, 0.15);
+  background-color: #1e3a5f;
+}
+
+/* ===== COVER SECTION ===== */
+.cover-section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+}
+
+.cover-section.opened {
+  transform: translateY(-100vh);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== BUTTONS ===== */
+.btn-blue-gold {
+  background: linear-gradient(135deg, var(--inv-blue-deep) 0%, var(--inv-blue-mid) 100%);
+  color: white;
+  padding: 14px 36px;
+  border-radius: 50px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid var(--inv-gold-light);
+  cursor: pointer;
+  box-shadow: 0 8px 32px rgba(30, 58, 95, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  text-transform: uppercase;
+  font-size: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-blue-gold::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: rotate(45deg);
+  animation: btnShimmer 3s ease-in-out infinite;
+}
+
+@keyframes btnShimmer {
+
+  0%,
+  100% {
+    transform: translateX(-100%) rotate(45deg);
+  }
+
+  50% {
+    transform: translateX(100%) rotate(45deg);
+  }
+}
+
+.btn-blue-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(30, 58, 95, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes rotateFloral {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Fluid ornaments for better mobile fit */
+.main-mobile-frame {
+  width: 100%;
+  max-width: var(--mobile-width);
+  position: relative;
+}
+
+@keyframes floatUp {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmerGold {
+  0% {
+    background-position: -200% center;
+  }
+
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(201, 168, 76, 0.2);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(201, 168, 76, 0.4);
+  }
+}
+
+.float-animation {
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+/* Cover entrance animations (CSS-only, no framer-motion dependency) */
+@keyframes coverSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes coverSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes coverFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.cover-slide-down {
+  animation: coverSlideDown 1.2s ease-out both;
+}
+
+.cover-slide-up {
+  animation: coverSlideUp 1.2s ease-out both;
+}
+
+.cover-fade-in {
+  animation: coverFadeIn 1s ease-out 0.3s both;
+}
+
+/* ===== GOLD DIVIDER ===== */
+.gold-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--inv-gold), transparent);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.gold-divider-wide {
+  width: 100px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--inv-gold-light), var(--inv-gold), var(--inv-gold-light), transparent);
+  margin: 0 auto;
+}
+
+/* ===== SECTION BACKGROUNDS ===== */
+.section-marble-bg {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(238, 242, 247, 0.95) 0%, rgba(247, 243, 238, 0.9) 50%, rgba(238, 242, 247, 0.95) 100%);
+}
+
+/* ===== COUNTDOWN ===== */
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+  transition: transform 0.3s ease;
+}
+
+.countdown-item:hover {
+  transform: translateY(-2px);
+}
+
+/* ===== EVENT CARDS ===== */
+.event-card {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  padding: 36px 28px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(30, 58, 95, 0.1);
+}
+
+.event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--inv-gold), transparent);
+}
+
+/* ===== LOCATION BUTTON ===== */
+.btn-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  background: linear-gradient(135deg, var(--inv-blue-deep), var(--inv-blue-mid));
+  color: white;
+  border-radius: 50px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(30, 58, 95, 0.25);
+}
+
+.btn-location:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(30, 58, 95, 0.35);
+}
+
+/* ===== GALLERY ===== */
+.gallery-item {
+  background: white;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(30, 58, 95, 0.08);
+  border: 4px solid #ffffff;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+/* ===== PHOTO FRAME ===== */
+.classic-frame {
+  position: relative;
+  width: 55vw;
+  max-width: 230px;
+  aspect-ratio: 3/4;
+  margin: 0 auto;
+  padding: 0;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 15px 35px rgba(30, 58, 95, 0.12);
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+.classic-frame:hover {
+  transform: translateY(-5px);
+}
+
+.classic-frame .inner-photo {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.classic-frame .inner-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: scale(1.05);
+}
+
+.ampersand-text {
+  font-size: 4rem;
+  color: var(--inv-gold);
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  text-shadow: 2px 2px 4px rgba(30, 58, 95, 0.1);
+}
+
+.ampersand-text::before,
+.ampersand-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 40px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--inv-gold-light), transparent);
+}
+
+.ampersand-text::before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.ampersand-text::after {
+  left: 100%;
+  margin-left: 15px;
+}
+
+/* ===== FLOATING AUDIO ===== */
+.audio-btn-blue {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--inv-blue-deep), var(--inv-blue-mid));
+  color: var(--inv-gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 90;
+  border: 2px solid var(--inv-gold-light);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 20px rgba(30, 58, 95, 0.3);
+  bottom: 120px;
+  left: calc(50% - (var(--mobile-width) / 2) + 24px);
+}
+
+@media (max-width: 450px) {
+  .audio-btn-blue {
+    left: 24px;
+    bottom: 100px;
+  }
+}
+
+.audio-btn-blue:hover {
+  transform: scale(1.1);
+}
+
+.audio-spinning {
+  animation: rotateFloral 6s linear infinite;
+}
+
+/* ===== SCROLLBAR ===== */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===== FOOTER ===== */
+.footer-blue {
+  position: relative;
+  background: linear-gradient(180deg, var(--inv-blue-deep) 0%, #0f2440 100%);
+  overflow: hidden;
+  margin-top: -1px;
+}
+
+.footer-blue::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center top, rgba(201, 168, 76, 0.08) 0%, transparent 60%);
+}
+
+/* ===== SECTION WRAPPERS ===== */
+.template-section {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  padding: 80px 0;
+}
+
+/* Tighten sections to prevent any whitespace */
+main>section {
+  margin-top: -2px;
+  border: none;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+/* The first section should not have a negative margin top */
+main>section:first-of-type {
+  margin-top: 0;
+}
+
+/* Ensure subsequent sections stack correctly */
+main>section:nth-child(n+2) {
+  z-index: 2;
+}
+
+/* Tighten footer overlap */
+.footer-blue {
+  margin-top: -2px;
+  padding-top: 5px;
+  z-index: 10;
+  position: relative;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 450px) {
+
+  .cover-section,
+  .main-mobile-frame {
+    height: fit-content;
+  }
+}
