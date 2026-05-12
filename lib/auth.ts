@@ -38,8 +38,9 @@ export const auth = betterAuth({
         ...(process.env.TRUSTED_ORIGINS ? process.env.TRUSTED_ORIGINS.split(',').map(url => url.trim()) : [])
     ].filter(Boolean),
     advanced: {
-        // Security Best Practice: Enable Secure Cookies in production (HTTPS)
-        useSecureCookies: isProduction,
+        // Security Best Practice: Enable Secure Cookies ONLY if using HTTPS.
+        // If accessing via IP (HTTP), this MUST be false or the browser will reject the cookie.
+        useSecureCookies: false, // Set to false to support HTTP IP access, change to isProduction once using Cloudflare/SSL
         
         // Security Best Practice: Do NOT disable CSRF checks in production.
         // It's often disabled in dev to simplify testing with tools like Postman, 
