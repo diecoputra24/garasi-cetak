@@ -10,7 +10,7 @@ const Chart = dynamic(() => import("react-apexcharts"), { ssr: false });
 interface VisitLog {
     id: string;
     createdAt: string | Date;
-    deviceType: string;
+    deviceType: string | null;
 }
 
 interface Props {

@@ -1,6 +1,8 @@
 import { auth } from "./auth";
 import { headers } from "next/headers";
 
+export const COOKIE_NAME = "gc-auth-token";
+
 /**
  * Get the current user session using Better Auth.
  * Works in Server Components, Server Actions, and Route Handlers.
