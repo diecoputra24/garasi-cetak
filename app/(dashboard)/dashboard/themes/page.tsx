@@ -6,10 +6,10 @@ import { useState } from "react";
 import Link from "next/link";
 
 const themes = [
-    { id: "modern-floral-red", name: "Modern Floral Red", color: "bg-red-900", desc: "Aesthetic Floral with Bold Accents" },
-    { id: "blue-modern-floral", name: "Blue Modern Floral", color: "bg-blue-900", desc: "Clean Serene Professional Blue" },
-    { id: "biru-muda-floral", name: "Biru Muda Floral", color: "bg-[#b7e4f7]", desc: "Soft, Light and Modern Floral" },
-    { id: "soft-floral-pink", name: "Soft Floral Pink", color: "bg-[#FDEEF4]", desc: "Elegant Soft Pink with Cherry Blossom" },
+    { id: "modern-floral-red", name: "Modern Floral Red", color: "bg-red-900", image: "/images/modern-floral-red/FULL COVER.jpg", desc: "Aesthetic Floral with Bold Accents" },
+    { id: "blue-modern-floral", name: "Blue Modern Floral", color: "bg-blue-900", image: "/images/biru-modern-floral/full.jpeg", desc: "Clean Serene Professional Blue" },
+    { id: "biru-muda-floral", name: "Biru Muda Floral", color: "bg-[#b7e4f7]", image: "/images/biru-muda-floral/BIRU F.jpg.jpeg", desc: "Soft, Light and Modern Floral" },
+    { id: "soft-floral-pink", name: "Soft Floral Pink", color: "bg-[#FDEEF4]", image: "/images/Pink Floral/PINK.jpg.jpeg", desc: "Elegant Soft Pink with Cherry Blossom" },
 ];
 
 export default function ThemesPage() {
@@ -49,12 +49,14 @@ export default function ThemesPage() {
                             </div>
                         )}
 
-                        {/* Preview Image Placeholder */}
-                        <div className={`aspect-[4/5] ${theme.color} relative overflow-hidden`}>
-                            <div className="absolute inset-0 bg-slate-900/40 opacity-40 group-hover:opacity-20 transition-opacity" />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <LayoutTemplate className="w-20 h-20 text-white/10 group-hover:text-white/20 transition-all group-hover:scale-110" />
-                            </div>
+                        {/* Preview Image */}
+                        <div className={`aspect-[4/5] relative overflow-hidden bg-gray-100`}>
+                            <img 
+                                src={theme.image} 
+                                alt={theme.name} 
+                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                            />
+                            <div className="absolute inset-0 bg-slate-900/20 group-hover:opacity-0 transition-opacity" />
 
                             <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-slate-950/90 to-transparent">
                                 <h3 className="text-lg text-white mb-1 ">{theme.name}</h3>

@@ -39,10 +39,10 @@ export default function Home() {
     ];
 
     const templates = [
-        { id: 1, title: 'Soft Floral Pink', cat: 'pernikahan', img: '/images/hero.png', path: '/invitation/soft-floral-pink' },
-        { id: 2, title: 'Blue Modern Floral', cat: 'pernikahan', img: '/images/couple.png', path: '/invitation/blue-modern-floral' },
-        { id: 3, title: 'Modern Floral Red', cat: 'pernikahan', img: '/images/mockup.png', path: '/invitation/modern-floral-red' },
-        { id: 8, title: 'Biru Muda Floral', cat: 'pernikahan', img: '/images/mockup.png', path: '/invitation/biru-muda-floral' },
+        { id: 1, title: 'Soft Floral Pink', cat: 'pernikahan', img: '/images/Pink Floral/PINK.jpg.jpeg', path: '/invitation/soft-floral-pink' },
+        { id: 2, title: 'Blue Modern Floral', cat: 'pernikahan', img: '/images/biru-modern-floral/full.jpeg', path: '/invitation/blue-modern-floral' },
+        { id: 3, title: 'Modern Floral Red', cat: 'pernikahan', img: '/images/modern-floral-red/FULL COVER.jpg', path: '/invitation/modern-floral-red' },
+        { id: 8, title: 'Biru Muda Floral', cat: 'pernikahan', img: '/images/biru-muda-floral/BIRU F.jpg.jpeg', path: '/invitation/biru-muda-floral' },
         { id: 4, title: 'Ceria Kids Birthday', cat: 'ulang-tahun', img: '/images/mockup.png', path: '#' },
         { id: 5, title: 'Elegant Khitanan', cat: 'khitanan', img: '/images/ornament.png', path: '#' },
         { id: 6, title: 'Playful Party', cat: 'ulang-tahun', img: '/images/hero.png', path: '#' },

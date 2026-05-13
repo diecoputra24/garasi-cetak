@@ -45,10 +45,10 @@ const steps = [
 ];
 
 const themes = [
-    { id: "modern-floral-red", name: "Modern Floral Red", color: "bg-red-900" },
-    { id: "blue-modern-floral", name: "Blue Modern Floral", color: "bg-blue-900" },
-    { id: "biru-muda-floral", name: "Biru Muda Floral", color: "bg-[#b7e4f7]" },
-    { id: "soft-floral-pink", name: "Soft Floral Pink", color: "bg-[#FDEEF4]" },
+    { id: "modern-floral-red", name: "Modern Floral Red", color: "bg-red-900", image: "/images/modern-floral-red/FULL COVER.jpg" },
+    { id: "blue-modern-floral", name: "Blue Modern Floral", color: "bg-blue-900", image: "/images/biru-modern-floral/full.jpeg" },
+    { id: "biru-muda-floral", name: "Biru Muda Floral", color: "bg-[#b7e4f7]", image: "/images/biru-muda-floral/BIRU F.jpg.jpeg" },
+    { id: "soft-floral-pink", name: "Soft Floral Pink", color: "bg-[#FDEEF4]", image: "/images/Pink Floral/PINK.jpg.jpeg" },
 ];
 
 function BuilderContent() {
@@ -289,7 +289,9 @@ function BuilderContent() {
                                             {themes.map((theme) => (
                                                 <div key={theme.id} onClick={() => setFormData({ ...formData, themeId: theme.id })} className={`p-8 rounded-sm border-2 transition-all cursor-pointer flex items-center justify-between group ${formData.themeId === theme.id ? "bg-blue-50/30 border-blue-600" : "bg-white border-gray-100 hover:border-gray-300"}`}>
                                                     <div className="flex items-center gap-8">
-                                                        <div className={`w-16 h-16 rounded-full border-4 border-white ${theme.color}`} />
+                                                        <div className={`w-20 h-28 rounded-sm overflow-hidden border border-gray-100 bg-gray-50 shrink-0`}>
+                                                            <img src={theme.image} alt={theme.name} className="w-full h-full object-cover" />
+                                                        </div>
                                                         <div>
                                                             <p className="font-black text-base  text-slate-900">{theme.name}</p>
                                                             <p className="text-sm text-gray-400 mt-1">Official System Preset</p>
