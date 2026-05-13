@@ -329,7 +329,7 @@ export async function incrementInvitationViews(slug: string) {
         if (!inv) return;
 
         // Unique Visitor Logic: Check if same IP visited this invitation in the last 30 minutes
-        const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000).toISOString();
+        const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000);
         const recentVisits = await (prisma as any).$queryRawUnsafe(`
             SELECT "id" FROM "visit_log" 
             WHERE "invitationId" = $1 AND "ipAddress" = $2 AND "createdAt" >= $3
@@ -354,7 +354,7 @@ export async function incrementInvitationViews(slug: string) {
                 ip,
                 ua,
                 deviceType,
-                new Date().toISOString()
+                new Date()
             );
         }
     } catch (error) {
