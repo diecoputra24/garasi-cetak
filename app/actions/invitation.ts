@@ -23,10 +23,12 @@ async function rawUpdateInvitation(id: string, data: any) {
         return val;
     });
     
-    console.log(`Updating invitation ${id} with fields:`, fields);
+    const query = `UPDATE "invitation" SET ${setClause} WHERE "id" = $${fields.length + 1}`;
+    console.log("EXECUTE SQL:", query);
+    console.log("VALUES:", [...values, id]);
     
     await (prisma as any).$executeRawUnsafe(
-        `UPDATE "invitation" SET ${setClause} WHERE "id" = $${fields.length + 1}`,
+        query,
         ...values,
         id
     );
@@ -51,8 +53,12 @@ async function rawCreateInvitation(data: any) {
         return val;
     });
 
+    const query = `INSERT INTO "invitation" (${columns}) VALUES (${placeHolders})`;
+    console.log("EXECUTE INSERT SQL:", query);
+    console.log("VALUES:", values);
+
     await (prisma as any).$executeRawUnsafe(
-        `INSERT INTO "invitation" (${columns}) VALUES (${placeHolders})`,
+        query,
         ...values
     );
 }
