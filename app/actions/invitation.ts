@@ -18,8 +18,13 @@ async function rawUpdateInvitation(id: string, data: any) {
     const fields = Object.keys(data).filter(k => allowedColumns.includes(k));
     const setClause = fields.map((k, i) => `"${k}" = $${i + 1}`).join(', ');
     const values = fields.map(k => {
-        const val = data[k];
-        if (val instanceof Date) return val.toISOString();
+        let val = data[k];
+        // Ensure date columns are passed as Date objects for Postgres
+        if ((k === 'akadDate' || k === 'resepsiDate' || k === 'updatedAt' || k === 'createdAt') && val) {
+            if (!(val instanceof Date)) {
+                val = new Date(val);
+            }
+        }
         return val;
     });
     
@@ -48,8 +53,13 @@ async function rawCreateInvitation(data: any) {
     const columns = fields.map(k => `"${k}"`).join(', ');
     const placeHolders = fields.map((_, i) => `$${i + 1}`).join(', ');
     const values = fields.map(k => {
-        const val = data[k];
-        if (val instanceof Date) return val.toISOString();
+        let val = data[k];
+        // Ensure date columns are passed as Date objects for Postgres
+        if ((k === 'akadDate' || k === 'resepsiDate' || k === 'updatedAt' || k === 'createdAt') && val) {
+            if (!(val instanceof Date)) {
+                val = new Date(val);
+            }
+        }
         return val;
     });
 
