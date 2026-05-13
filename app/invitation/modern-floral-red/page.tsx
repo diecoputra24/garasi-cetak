@@ -155,7 +155,7 @@ function InvitationContent() {
 
   return (
     <div className={`outer-container flex justify-center bg-white min-h-screen ${montserrat.className}`}>
-      <div className="main-mobile-frame relative bg-[#8b0000] shadow-2xl overflow-x-hidden md:w-[450px] min-h-screen flex flex-col">
+      <div className="main-mobile-frame relative bg-[#8b0000] shadow-2xl overflow-x-hidden w-full max-w-none sm:max-w-[450px] min-h-screen flex flex-col">
         {/* BACKGROUND MUSIC */}
         <audio ref={audioRef} loop>
           <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
@@ -314,7 +314,7 @@ function InvitationContent() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, amount: 0.1 }}
-                    className="py-10 relative mb-12 text-center"
+                    className="pt-10 pb-24 relative mb-12 text-center"
                   >
                     <div className="px-8 relative z-10 text-white text-center">
                       <p className={`text-sm italic leading-relaxed text-white mb-6 ${playfair.className} drop-shadow-lg`}>
@@ -329,7 +329,7 @@ function InvitationContent() {
               </section>
 
               {/* BAGIAN 2: AKAD NIKAH & EVENT */}
-              <section id="section-2" className="relative py-12 overflow-hidden">
+              <section id="section-2" className="relative pt-12 pb-24 overflow-hidden">
                 {/* Dekorasi Atas & Bawah di Bagian 2 */}
                 <motion.div
                   initial={{ y: -50, opacity: 0 }}
@@ -407,13 +407,13 @@ function InvitationContent() {
                           viewport={{ once: true, amount: 0.1 }}
                           className="relative group"
                         >
-                          <div className="relative z-20 px-8 py-10 text-white text-center bg-white/5 border border-white/10 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
+                          <div className="relative z-20 px-8 pt-10 pb-24 text-white text-center bg-white/5 border border-gray-200 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
                             {/* Decorative background element */}
                             <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
                             <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#8B0000]/20 rounded-full blur-3xl"></div>
 
                             <h3 className={`text-3xl mb-4 text-[#D4AF37] ${playfair.className} font-bold drop-shadow-md`}>{event.title}</h3>
-                            <p className="text-[10px] text-white/50 italic mb-6 px-10 leading-relaxed">{event.desc}</p>
+                            <p className="text-[10px] text-gray-500 italic mb-6 px-10 leading-relaxed">{event.desc}</p>
 
                             <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mx-auto mb-8"></div>
 
@@ -436,7 +436,7 @@ function InvitationContent() {
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" /><line x1="8" y1="2" x2="8" y2="18" /><line x1="16" y1="6" x2="16" y2="22" /></svg>
                                 Lihat Lokasi
                               </button>
-                              <button className="w-full py-3 px-6 rounded-md bg-white/10 text-white text-[9px] tracking-[0.15em] font-bold uppercase border border-white/10 hover:bg-white/20 transition-all flex items-center justify-center gap-2">
+                              <button className="w-full py-3 px-6 rounded-md bg-white/10 text-white text-[9px] tracking-[0.15em] font-bold uppercase border border-gray-200 hover:bg-white/20 transition-all flex items-center justify-center gap-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
                                 Simpan ke Kalender
                               </button>
@@ -450,7 +450,7 @@ function InvitationContent() {
               </section>
 
               {/* BAGIAN: GALERI */}
-              <section id="gallery" className="relative py-12 overflow-hidden">
+              <section id="gallery" className="relative pt-12 pb-24 overflow-hidden">
                 <motion.div initial={{ y: -50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} className="absolute top-0 left-0 w-full z-10 pointer-events-none translate-x-5">
                   <img src="/images/modern-floral-red/2.png" alt="deco" className="w-full h-auto" />
                 </motion.div>
@@ -472,9 +472,9 @@ function InvitationContent() {
               </section>
 
               {/* BAGIAN: KONFIRMASI KEHADIRAN (RSVP) */}
-              <section id="rsvp-section" className="relative py-12 overflow-hidden">
+              <section id="rsvp-section" className="relative pt-12 pb-24 overflow-hidden">
                 <div className="relative z-20 px-6">
-                  <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-md shadow-md">
+                  <div className="bg-white/5 backdrop-blur-xl border border-gray-200 p-8 rounded-md shadow-md">
                     <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className={`text-3xl mb-4 text-[#D4AF37] ${playfair.className} font-bold text-center`}>
                       Konfirmasi Kehadiran
                     </motion.h2>
@@ -482,13 +482,13 @@ function InvitationContent() {
 
                     <form onSubmit={handleRSVP} className="space-y-4">
                       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                        <label className="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-1 block">Nama Lengkap</label>
-                        <input value={rsvpName} onChange={(e) => setRsvpName(e.target.value)} placeholder="Masukkan Nama Anda" className="w-full px-5 py-4 rounded-md bg-white border border-white/10 text-black outline-none focus:border-[#D4AF37]/50 transition placeholder:text-gray-400 font-bold" />
+                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Nama Lengkap</label>
+                        <input value={rsvpName} onChange={(e) => setRsvpName(e.target.value)} placeholder="Masukkan Nama Anda" className="w-full px-5 py-4 rounded-md bg-white border border-gray-200 text-black outline-none focus:border-[#D4AF37]/50 transition placeholder:text-gray-400 font-bold" />
                       </motion.div>
 
                       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.1 }}>
-                        <label className="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-1 block">Jumlah Tamu</label>
-                        <select value={rsvpTotal} onChange={(e) => setRsvpTotal(e.target.value)} className="w-full px-5 py-4 rounded-md bg-white border border-white/10 text-black outline-none focus:border-[#D4AF37]/50 transition font-bold">
+                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Jumlah Tamu</label>
+                        <select value={rsvpTotal} onChange={(e) => setRsvpTotal(e.target.value)} className="w-full px-5 py-4 rounded-md bg-white border border-gray-200 text-black outline-none focus:border-[#D4AF37]/50 transition font-bold">
                           <option value="1">1 Orang</option>
                           <option value="2">2 Orang</option>
                           <option value="3">3 Orang</option>
@@ -496,10 +496,10 @@ function InvitationContent() {
                       </motion.div>
 
                       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                        <label className="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-1 block">Status Kehadiran</label>
+                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Status Kehadiran</label>
                         <div className="grid grid-cols-2 gap-3">
                           {['Hadir', 'Tidak Hadir'].map((status) => (
-                            <button key={status} type="button" onClick={() => setRsvpStatus(status)} className={`py-3 rounded-md border transition-all text-[11px] font-bold uppercase tracking-wider ${rsvpStatus === status ? 'bg-[#D4AF37] border-[#D4AF37] text-white shadow-md shadow-[#D4AF37]/20' : 'bg-white/5 border-white/10 text-white/60'}`}>
+                            <button key={status} type="button" onClick={() => setRsvpStatus(status)} className={`py-3 rounded-md border transition-all text-[11px] font-bold uppercase tracking-wider ${rsvpStatus === status ? 'bg-[#D4AF37] border-[#D4AF37] text-white shadow-md shadow-[#D4AF37]/20' : 'bg-white/5 border-gray-200 text-white/60'}`}>
                               {status}
                             </button>
                           ))}
@@ -515,7 +515,7 @@ function InvitationContent() {
               </section>
 
               {/* BAGIAN: HADIAH DIGITAL */}
-              <section id="gift" className="relative py-12 overflow-hidden">
+              <section id="gift" className="relative pt-12 pb-24 overflow-hidden">
                 <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
                   <img src="/images/modern-floral-red/3.png" alt="deco" className="w-full h-auto" />
                 </motion.div>
@@ -531,7 +531,7 @@ function InvitationContent() {
                       { bankName: "BRI", accountNo: "1234567890", accountHolder: "Romeo Juliet", logo: "/images/bank/bri.png" },
                       { bankName: "MANDIRI", accountNo: "0987654321", accountHolder: "Romeo Juliet", logo: "/images/bank/mandiri.png" }
                     ].map((gift, idx) => (
-                      <div key={idx} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 text-white relative overflow-hidden group hover:border-[#D4AF37]/50 transition-all">
+                      <div key={idx} className="bg-white/5 backdrop-blur-md border border-gray-200 rounded-2xl p-8 text-white relative overflow-hidden group hover:border-[#D4AF37]/50 transition-all">
                         <div className="flex flex-col items-center mb-6">
                           <div className="mb-4 h-12 w-full flex items-center justify-center">
                             <img src={gift.logo} className="max-h-full object-contain" alt={gift.bankName} />
@@ -549,7 +549,7 @@ function InvitationContent() {
                           <p className="text-lg font-bold text-white">{gift.accountHolder}</p>
                         </div>
 
-                        <button onClick={() => { navigator.clipboard.writeText(gift.accountNo); alert("Nomor rekening berhasil tersalin"); }} className="w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl text-[10px] uppercase font-bold tracking-[0.3em] border border-white/10 transition-all flex items-center justify-center gap-2">
+                        <button onClick={() => { navigator.clipboard.writeText(gift.accountNo); alert("Nomor rekening berhasil tersalin"); }} className="w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl text-[10px] uppercase font-bold tracking-[0.3em] border border-gray-200 transition-all flex items-center justify-center gap-2">
                           📋 Salin Rekening
                         </button>
                       </div>
@@ -559,7 +559,7 @@ function InvitationContent() {
               </section>
 
               {/* BAGIAN 3: UCAPAN & DOA */}
-              <section id="section-3" className="relative py-12 overflow-hidden">
+              <section id="section-3" className="relative pt-12 pb-24 overflow-hidden">
                 {/* Dekorasi Atas & Bawah di Bagian 3 */}
                 <motion.div
                   initial={{ y: -50, opacity: 0 }}
@@ -631,13 +631,13 @@ function InvitationContent() {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="relative text-center py-10 px-10 bg-[#8b0000] overflow-hidden z-20" style={{ backgroundImage: 'url("/images/modern-floral-red/4.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+                className="relative text-center pt-10 pb-4 px-10 bg-[#8b0000] overflow-hidden z-20" style={{ backgroundImage: 'url("/images/modern-floral-red/4.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}
               >
                 <div className="relative z-10 text-white pt-6 pb-6">
                   <p className={`text-5xl text-white mb-4 ${greatVibes.className} drop-shadow-xl`}>Romeo & Juliet</p>
                   <p className="text-sm text-white/60 mb-10 italic tracking-wide font-light">Sampai jumpa di hari bahagia kami</p>
 
-                  <div className="pt-8 border-t border-white/10">
+                  <div className="pt-8 border-t border-gray-200">
                     <p className="text-[10px] text-white/40 uppercase tracking-[0.3em] mb-4 font-bold">Digital Invitation by</p>
                     <a href="https://garasicetak.com" target="_blank" className="inline-flex items-center gap-3 group">
                       <img src="/images/logo.png" alt="logo" className="w-14 h-14 object-contain transition-opacity" />
@@ -656,7 +656,7 @@ function InvitationContent() {
         </AnimatePresence>
 
         {/* FLOATING AUDIO TOGGLE */}
-        <button onClick={toggleMute} className={`audio-btn left-6 bottom-32 shadow-md !bg-[#8B0000] border-4 border-white/10 ${isMuted ? '' : 'audio-spinning'} z-[999]`}>
+        <button onClick={toggleMute} className={`audio-btn left-6 bottom-32 shadow-md !bg-[#8B0000] border-4 border-gray-200 ${isMuted ? '' : 'audio-spinning'} z-[999]`}>
           {isMuted ? (
             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="1" y1="1" x2="23" y2="23" /><path d="M9 13.84V11a2 2 0 0 1-1.48-1.92l5.52-1.38V5l1.63-.27C18.66 4.56 20 5.3 20 6.34v8.5m0 5.16v.5a3 3 0 0 1-3 3 3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3Z" /><circle cx="6" cy="18" r="3" /></svg>
           ) : (
@@ -665,7 +665,7 @@ function InvitationContent() {
         </button>
 
         {/* NAVIGATION BOTTOM */}
-        <nav className={`fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[450px] bg-[#1a1a1a]/90 backdrop-blur-xl border-t border-white/10 rounded-t-md p-2 flex justify-around items-center shadow-md z-[9999] opacity-0 transition-all duration-500 pointer-events-none [&.active]:opacity-100 [&.active]:pointer-events-auto ${isOpen ? 'active' : ''}`}>
+        <nav className={`fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-none sm:max-w-[450px] bg-white/95 backdrop-blur-xl border-t border-gray-200 rounded-t-md p-2 flex justify-around items-center shadow-md z-[9999] opacity-0 transition-all duration-500 pointer-events-none [&.active]:opacity-100 [&.active]:pointer-events-auto ${isOpen ? 'active' : ''}`}>
           {[
             { id: '#home', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>, label: 'Muka' },
             { id: '#section-1', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>, label: 'Mempelai' },
@@ -675,7 +675,7 @@ function InvitationContent() {
             { id: '#gift', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>, label: 'Kado' },
             { id: '#wishes', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>, label: 'Doa' }
           ].map((link) => (
-            <a key={link.id} href={link.id} className="flex flex-col items-center justify-center w-auto h-auto text-white/50 hover:text-[#D4AF37] transition-all px-1">
+            <a key={link.id} href={link.id} className="flex flex-col items-center justify-center w-auto h-auto text-[#8B0000]/70 hover:text-[#8B0000] transition-all px-1">
               {link.icon}
               <span className="text-[6px] uppercase tracking-tighter mt-1 font-bold">{link.label}</span>
             </a>

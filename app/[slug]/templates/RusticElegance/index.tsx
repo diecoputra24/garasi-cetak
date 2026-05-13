@@ -156,7 +156,7 @@ function InvitationContent({ data }: TemplateProps) {
                             { val: timeLeft.minutes, unit: 'Menit' },
                             { val: timeLeft.seconds, unit: 'Detik' }
                         ].map((item, i) => (
-                            <div key={i} className="bg-white/5 p-2 rounded-lg text-center border border-white/10">
+                            <div key={i} className="bg-white/5 p-2 rounded-lg text-center border border-gray-200">
                                 <p className="text-xl font-bold">{item.val}</p>
                                 <p className="text-[8px] uppercase">{item.unit}</p>
                             </div>
@@ -164,12 +164,12 @@ function InvitationContent({ data }: TemplateProps) {
                     </div>
 
                     <div className="space-y-8">
-                        <div className="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
+                        <div className="bg-white/5 p-6 rounded-2xl border border-gray-200 text-center">
                             <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Akad Nikah</h3>
                             <p className="text-sm mb-4">{data.akadPlace}</p>
                             <p className="text-xs opacity-60">{data.akadAddress}</p>
                         </div>
-                        <div className="bg-white/5 p-6 rounded-2xl border border-white/10 text-center">
+                        <div className="bg-white/5 p-6 rounded-2xl border border-gray-200 text-center">
                             <h3 className="text-xl font-bold text-[#D4AF37] mb-4">Resepsi</h3>
                             <p className="text-sm mb-4">{data.resepsiPlace}</p>
                             <p className="text-xs opacity-60">{data.resepsiAddress}</p>
@@ -189,8 +189,8 @@ function InvitationContent({ data }: TemplateProps) {
                                     </div>
                                     <div className="space-y-4">
                                         {item.image && (
-                                            <div className="w-32 aspect-square overflow-hidden border border-white/10 shadow-lg mb-4">
-                                                <img src={fixImageUrl(item.image)} className="w-full h-full object-cover" alt={item.title} />
+                                            <div className="relative w-32 aspect-square overflow-hidden border bg-white border-gray-200 shadow-lg mb-4">
+                                                <img src={fixImageUrl(item.image)} className="absolute inset-0 w-full h-full object-cover" alt={item.title} />
                                             </div>
                                         )}
                                         <div>
@@ -238,7 +238,7 @@ function InvitationContent({ data }: TemplateProps) {
                 </section>
 
                 {/* KADO SECTION */}
-                <section id="gift" className="relative py-12 overflow-hidden bg-[#4B3621]">
+                <section id="gift" className="relative pt-12 pb-24 overflow-hidden bg-[#4B3621]">
                     <div className="relative z-20 px-6">
                         <h2 className={`text-4xl mb-4 text-[#D4AF37] ${playfair.className} font-bold text-center`}>Kado Digital</h2>
                         <InvitationGift gifts={data.gifts} handleCopy={handleCopy} copiedBank={copiedBank} theme="rustic" />
@@ -279,7 +279,7 @@ function InvitationContent({ data }: TemplateProps) {
                 <InvitationAudioToggle isMuted={isMuted} toggleMute={toggleMute} theme="rustic" />
 
                 {/* NAVIGATION BOTTOM */}
-                <InvitationBottomNav isOpen={isOpen} theme="rustic" />
+                <InvitationBottomNav isOpen={isOpen} theme="rustic" bgColor="bg-[#2c2a26]/95" textColor="text-white/50" activeColor="text-[#D4AF37]" className="border-[#D4AF37]/20" />
 
             </motion.main>
         )}

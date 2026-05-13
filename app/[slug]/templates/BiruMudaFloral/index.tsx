@@ -142,7 +142,7 @@ export default function BiruMudaFloralTemplate({ data }: TemplateProps) {
 
   return (
     <div className={`outer-container flex justify-center bg-white min-h-screen ${outfit.className}`}>
-      <div className={`main-mobile-frame relative bg-white shadow-2xl overflow-x-hidden scrollbar-hide md:w-[450px] min-h-screen flex flex-col text-[#1e3a5f] ${!isOpen ? 'h-screen overflow-hidden' : ''}`}>
+      <div className={`main-mobile-frame relative bg-white shadow-2xl overflow-x-hidden scrollbar-hide w-full max-w-none sm:max-w-[450px] min-h-screen flex flex-col text-[#1e3a5f] ${!isOpen ? 'h-screen overflow-hidden' : ''}`}>
         
         {/* BACKGROUND MUSIC */}
         {data.musicUrl && isYouTube(data.musicUrl) ? (
@@ -280,7 +280,7 @@ export default function BiruMudaFloralTemplate({ data }: TemplateProps) {
 
                   {/* AR-RUM QUOTE */}
                   <RevealSection delay={0.4}>
-                    <div className="px-8 py-10 relative mt-8 w-full text-center">
+                    <div className="px-8 pt-10 pb-24 relative mt-8 w-full text-center">
                       <p className={`text-sm italic leading-relaxed text-[#1e3a5f] mb-6 ${playfair.className}`}>
                         "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari jenismu sendiri,
                         supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya diantaramu rasa kasih dan sayang.
@@ -410,9 +410,9 @@ export default function BiruMudaFloralTemplate({ data }: TemplateProps) {
                                   initial={{ opacity: 0, scale: 0.8 }}
                                   whileInView={{ opacity: 1, scale: 1 }}
                                   viewport={{ once: true }}
-                                  className="w-28 aspect-square overflow-hidden border-2 border-white shadow-md rounded-lg mb-2"
+                                  className="relative w-28 aspect-square overflow-hidden border bg-white-2 border-white shadow-md rounded-lg mb-2"
                                 >
-                                  <img src={fixImageUrl(item.image)} alt={item.title} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = "/images/couple.png"; }} />
+                                  <img src={fixImageUrl(item.image)} alt={item.title} className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.src = "/images/couple.png"; }} />
                                 </motion.div>
                               )}
                               <div>
@@ -534,7 +534,7 @@ export default function BiruMudaFloralTemplate({ data }: TemplateProps) {
               </SectionBg>
 
               {/* ===== FOOTER ===== */}
-              <footer className="relative py-24 px-10 bg-white flex flex-col items-center overflow-hidden">
+              <footer className="relative pt-12 pb-4 px-10 bg-white flex flex-col items-center overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-40 z-0 opacity-70">
                    <img src={`${assetPath}/7.png`} alt="divider" className="w-full h-auto" />
                 </div>
@@ -573,7 +573,7 @@ export default function BiruMudaFloralTemplate({ data }: TemplateProps) {
         <InvitationAudioToggle isMuted={isMuted} toggleMute={toggleMute} />
 
         {/* NAVIGATION BOTTOM */}
-        <InvitationBottomNav isOpen={isOpen} />
+        <InvitationBottomNav isOpen={isOpen} bgColor="bg-white/95" textColor="text-[#1e3a5f]" activeColor="text-[#0b5c6e]" />
 
       </div>
     </div>

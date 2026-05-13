@@ -16,7 +16,7 @@ export default async function InvitationPage({ params }: { params: { slug: strin
     
     // Gunakan raw query agar kolom story dan musicUrl terbaca (bypass Prisma Client out-of-sync)
     const invitations = await prisma.$queryRawUnsafe(
-        `SELECT * FROM "invitation" WHERE "slug" = ?`,
+        `SELECT * FROM "invitation" WHERE "slug" = $1`,
         slug
     ) as any[];
 

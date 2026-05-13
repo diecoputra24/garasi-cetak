@@ -157,7 +157,7 @@ function InvitationContent({ data }: TemplateProps) {
 
   return (
     <div className={`outer-container flex justify-center min-h-screen ${montserrat.className}`}>
-      <div className={`main-mobile-frame relative bg-white shadow-2xl overflow-x-hidden scrollbar-hide md:w-[450px] min-h-screen flex flex-col ${!isOpen ? 'h-screen overflow-hidden' : ''}`}>
+      <div className={`main-mobile-frame relative bg-white shadow-2xl overflow-x-hidden scrollbar-hide w-full max-w-none sm:max-w-[450px] min-h-screen flex flex-col ${!isOpen ? 'h-screen overflow-hidden' : ''}`}>
         {/* Continuous Background Image (Like Red Template) */}
         <div className="relative inset-0 z-0 opacity-[0.15] pointer-events-none">
           <Image src={`${assetPath}/bg1.png`} fill style={{ objectFit: 'cover' }} alt="bg-main" className="scale-105" />
@@ -293,7 +293,7 @@ function InvitationContent({ data }: TemplateProps) {
 
                   {/* Ampersand */}
                   <RevealSection delay={0.2}>
-                    <div className="flex justify-center py-10">
+                    <div className="flex justify-center pt-10 pb-24">
                       <span className={`ampersand-text ${greatVibes.className}`}>&</span>
                     </div>
                   </RevealSection>
@@ -439,9 +439,9 @@ function InvitationContent({ data }: TemplateProps) {
                                 initial={{ opacity: 0, scale: 0.8 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
-                                className="w-32 aspect-square overflow-hidden border border-[#1e3a5f]/10 shadow-lg"
+                                className="relative w-32 aspect-square overflow-hidden border bg-white border-[#1e3a5f]/10 shadow-lg"
                               >
-                                <img src={fixImageUrl(item.image)} className="w-full h-full object-cover" alt={item.title} />
+                                <img src={fixImageUrl(item.image)} className="absolute inset-0 w-full h-full object-cover" alt={item.title} />
                               </motion.div>
                             )}
                             <div className="text-left">
@@ -542,7 +542,7 @@ function InvitationContent({ data }: TemplateProps) {
             </SectionBg>
 
             {/* ===== FOOTER ===== */}
-            <footer className="footer-blue relative text-center py-10 px-10 bg-[#0c1a2e] overflow-hidden z-20">
+            <footer className="footer-blue relative text-center pt-10 pb-4 px-10 bg-[#0c1a2e] overflow-hidden z-20">
               {/* Soft floral overlay */}
               <div className="absolute inset-0 z-0 pointer-events-none opacity-10">
                 <img src={`${assetPath}/2.png`} alt="bg" className="w-full absolute top-0 left-0" />
@@ -553,7 +553,7 @@ function InvitationContent({ data }: TemplateProps) {
                 <p className={`text-5xl text-white mb-4 ${greatVibes.className} drop-shadow-xl text-center`}>{data.brideShort} & {data.groomShort}</p>
                 <p className="text-sm text-white/60 mb-10 italic tracking-wide font-light text-center">Sampai jumpa di hari bahagia kami</p>
 
-                <div className="pt-8 border-t border-white/10 flex flex-col items-center">
+                <div className="pt-8 border-t border-gray-200 flex flex-col items-center">
                   <p className="text-[10px] text-white/40 uppercase tracking-[0.3em] mb-4 font-bold text-center">Digital Invitation by</p>
                   <a href="https://garasicetak.com" target="_blank" className="flex items-center gap-3 group">
                     <img src="/images/logo.png" alt="logo" className="w-14 h-14 object-contain transition-opacity" />
@@ -583,7 +583,12 @@ function InvitationContent({ data }: TemplateProps) {
           </motion.main>
         )}
         {/* NAVIGATION BOTTOM */}
-        <InvitationBottomNav isOpen={isOpen} theme="modern" />
+        <InvitationBottomNav 
+          isOpen={isOpen} 
+          theme="modern" 
+          textColor="text-[#1e3a5f]" 
+          activeColor="text-[#c9a84c]" 
+        />
       </div>
     </div>
   );

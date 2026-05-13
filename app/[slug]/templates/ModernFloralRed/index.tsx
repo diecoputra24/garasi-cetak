@@ -7,6 +7,7 @@ import { Playfair_Display, Great_Vibes, Montserrat } from 'next/font/google';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Heart } from 'lucide-react';
 import { useInvitation, InvitationData } from '@/components/templates/shared/useInvitation';
+import { InvitationBottomNav } from '@/components/templates/shared/InvitationBottomNav';
 import { InvitationGallery } from '@/components/templates/shared/InvitationGallery';
 
 const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap' });
@@ -108,7 +109,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
 
   return (
     <div className={`outer-container flex justify-center bg-white min-h-screen ${montserrat.className}`}>
-      <div className="main-mobile-frame relative bg-white shadow-2xl overflow-x-hidden scrollbar-hide md:w-[450px] min-h-screen flex flex-col">
+      <div className="main-mobile-frame relative bg-white shadow-2xl overflow-x-hidden scrollbar-hide w-full max-w-none sm:max-w-[450px] min-h-screen flex flex-col">
         {/* BACKGROUND MUSIC */}
         {data.musicUrl && isYouTube(data.musicUrl) ? (
           <div className="fixed opacity-0 pointer-events-none">
@@ -180,7 +181,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
             >
 
               {/* BAGIAN 1: PEMBUKA & PROFIL & AYAT AR-RUM */}
-              <section id="section-1" className="relative pt-12 pb-20 overflow-hidden">
+              <section id="mempelai" className="relative pt-12 pb-24 overflow-hidden">
                 {/* Dekorasi Atas & Bawah di Bagian 1 */}
                 <motion.div
                   initial={{ y: -50, opacity: 0 }}
@@ -226,8 +227,8 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
 
                   <div className="flex flex-col items-center gap-10 mb-12">
                     <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center group">
-                      <div className="w-44 h-56 mx-auto mb-6 border-8 border-white shadow-2xl rotate-[-2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
-                        <img src={fixImageUrl(data.brideImage) || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&h=400&auto=format&fit=crop"} className="w-full h-full object-cover" alt="bride" />
+                      <div className="w-48 h-64 mx-auto mb-6 border-8 border-white bg-white shadow-2xl rotate-[-2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
+                        <img src={fixImageUrl(data.brideImage) || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&h=400&auto=format&fit=crop"} className="absolute inset-0 w-full h-full object-cover" alt="bride" />
                       </div>
                       <h2 className={`text-5xl text-white mb-3 leading-tight ${greatVibes.className} drop-shadow-xl`}>{data.brideName}</h2>
                       <p className="font-bold text-[10px] uppercase tracking-[0.3em] text-white mb-1 drop-shadow-md">dari :</p>
@@ -245,8 +246,8 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                     </motion.div>
 
                     <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center group">
-                      <div className="w-44 h-56 mx-auto mb-6 border-8 border-white shadow-2xl rotate-[2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
-                        <img src={fixImageUrl(data.groomImage) || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop"} className="w-full h-full object-cover" alt="groom" />
+                      <div className="w-48 h-64 mx-auto mb-6 border-8 border-white bg-white shadow-2xl rotate-[2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
+                        <img src={fixImageUrl(data.groomImage) || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop"} className="absolute inset-0 w-full h-full object-cover" alt="groom" />
                       </div>
                       <h2 className={`text-5xl text-white mb-3 leading-tight ${greatVibes.className} drop-shadow-xl`}>{data.groomName}</h2>
                       <p className="font-bold text-[10px] uppercase tracking-[0.3em] text-white mb-1 drop-shadow-md">dari :</p>
@@ -280,7 +281,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
               </section>
 
               {/* BAGIAN 2: AKAD NIKAH & EVENT */}
-              <section id="section-2" className="relative py-12 overflow-hidden">
+              <section id="acara" className="relative pt-12 pb-24 overflow-hidden">
                 {/* Dekorasi Atas & Bawah di Bagian 2 */}
                 <motion.div
                   initial={{ y: -50, opacity: 0 }}
@@ -352,12 +353,12 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                         viewport={{ once: true, amount: 0.1 }}
                         className="relative group"
                       >
-                        <div className="relative z-20 px-8 py-10 text-white text-center bg-white/5 border border-white/10 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
+                        <div className="relative z-20 px-8 pt-10 pb-24 text-white text-center bg-white/5 border border-gray-200 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
                           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
                           <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#8B0000]/20 rounded-full blur-3xl"></div>
 
                           <h3 className={`text-3xl mb-4 text-[#D4AF37] ${playfair.className} font-bold drop-shadow-md`}>Akad Nikah</h3>
-                          <p className="text-[10px] text-white/50 italic mb-6 px-10 leading-relaxed">Momen sakral pengucapan janji suci di hadapan Allah SWT.</p>
+                          <p className="text-[10px] text-gray-500 italic mb-6 px-10 leading-relaxed">Momen sakral pengucapan janji suci di hadapan Allah SWT.</p>
 
                           <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mx-auto mb-8"></div>
 
@@ -391,12 +392,12 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                         viewport={{ once: true, amount: 0.1 }}
                         className="relative group"
                       >
-                        <div className="relative z-20 px-8 py-10 text-white text-center bg-white/5 border border-white/10 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
+                        <div className="relative z-20 px-8 pt-10 pb-24 text-white text-center bg-white/5 border border-gray-200 rounded-lg backdrop-blur-xl shadow-2xl overflow-hidden">
                           <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-[#D4AF37]/5 rounded-full blur-3xl"></div>
                           <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#8B0000]/20 rounded-full blur-3xl"></div>
 
                           <h3 className={`text-3xl mb-4 text-[#D4AF37] ${playfair.className} font-bold drop-shadow-md`}>Resepsi</h3>
-                          <p className="text-[10px] text-white/50 italic mb-6 px-10 leading-relaxed">Ungkapan syukur dan kebahagiaan kami bersama keluarga & sahabat.</p>
+                          <p className="text-[10px] text-gray-500 italic mb-6 px-10 leading-relaxed">Ungkapan syukur dan kebahagiaan kami bersama keluarga & sahabat.</p>
 
                           <div className="w-16 h-[1px] bg-gradient-to-r from-transparent via-[#D4AF37]/50 to-transparent mx-auto mb-8"></div>
 
@@ -428,7 +429,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
               </section>
               {/* BAGIAN: CERITA CINTA (STORY) */}
               {story && story.length > 0 && (
-                <section id="story" className="relative py-12 overflow-hidden">
+                <section id="story" className="relative pt-12 pb-24 overflow-hidden">
                   {/* Dekorasi Atas & Bawah */}
                   <motion.div
                     initial={{ y: -50, opacity: 0 }}
@@ -489,9 +490,9 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     viewport={{ once: true }}
-                                    className="w-32 aspect-square overflow-hidden border border-white/10 shadow-lg mb-2"
+                                    className="relative w-32 aspect-square overflow-hidden border bg-white border-gray-200 shadow-lg mb-2"
                                   >
-                                    <img src={fixImageUrl(item.image)} alt={item.title} className="w-full h-full object-cover" />
+                                    <img src={fixImageUrl(item.image)} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
                                   </motion.div>
                                 )}
                                 <div>
@@ -513,7 +514,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
  
 
               {/* BAGIAN: GALERI */}
-              <section id="gallery" className="relative py-12 overflow-hidden" style={{ backgroundImage: 'url("/images/modern-floral-red/BG 7.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+              <section id="galeri" className="relative pt-12 pb-24 overflow-hidden" style={{ backgroundImage: 'url("/images/modern-floral-red/BG 7.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <motion.div initial={{ y: -50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} className="absolute top-0 left-0 w-full z-10 pointer-events-none translate-x-5">
                   <img src="/images/modern-floral-red/2.png" alt="deco" className="w-full h-auto" />
                 </motion.div>
@@ -542,9 +543,9 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
               </section>
 
               {/* BAGIAN: KONFIRMASI KEHADIRAN (RSVP) */}
-              <section id="rsvp-section" className="relative py-12 overflow-hidden">
+              <section id="rsvp" className="relative pt-12 pb-24 overflow-hidden">
                 <div className="relative z-20 px-6">
-                  <div className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-md shadow-md">
+                  <div className="bg-white/5 backdrop-blur-xl border border-gray-200 p-8 rounded-md shadow-md">
                     <motion.h2 variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className={`text-3xl mb-4 text-[#D4AF37] ${playfair.className} font-bold text-center`}>
                       Konfirmasi Kehadiran
                     </motion.h2>
@@ -552,13 +553,13 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
 
                     <form onSubmit={handleRSVP} className="space-y-4">
                       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                        <label className="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-1 block">Nama Lengkap</label>
-                        <input value={rsvpName} onChange={(e) => setRsvpName(e.target.value)} placeholder="Masukkan Nama Anda" className="w-full px-5 py-4 rounded-md bg-white border border-white/10 text-black outline-none focus:border-[#D4AF37]/50 transition placeholder:text-gray-400 font-bold" />
+                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Nama Lengkap</label>
+                        <input value={rsvpName} onChange={(e) => setRsvpName(e.target.value)} placeholder="Masukkan Nama Anda" className="w-full px-5 py-4 rounded-md bg-white border border-gray-200 text-black outline-none focus:border-[#D4AF37]/50 transition placeholder:text-gray-400 font-bold" />
                       </motion.div>
 
                       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.1 }}>
-                        <label className="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-1 block">Jumlah Tamu</label>
-                        <select value={rsvpTotal} onChange={(e) => setRsvpTotal(e.target.value)} className="w-full px-5 py-4 rounded-md bg-white border border-white/10 text-black outline-none focus:border-[#D4AF37]/50 transition font-bold">
+                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Jumlah Tamu</label>
+                        <select value={rsvpTotal} onChange={(e) => setRsvpTotal(e.target.value)} className="w-full px-5 py-4 rounded-md bg-white border border-gray-200 text-black outline-none focus:border-[#D4AF37]/50 transition font-bold">
                           <option value="1">1 Orang</option>
                           <option value="2">2 Orang</option>
                           <option value="3">3 Orang</option>
@@ -568,10 +569,10 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                       </motion.div>
 
                       <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} transition={{ delay: 0.2 }}>
-                        <label className="text-[10px] uppercase tracking-widest text-white/50 font-bold mb-1 block">Status Kehadiran</label>
+                        <label className="text-[10px] uppercase tracking-widest text-gray-500 font-bold mb-1 block">Status Kehadiran</label>
                         <div className="grid grid-cols-2 gap-3">
                           {['Hadir', 'Tidak Hadir'].map((status) => (
-                            <button key={status} type="button" onClick={() => setRsvpStatus(status)} className={`py-3 rounded-md border transition-all text-[11px] font-bold uppercase tracking-wider ${rsvpStatus === status ? 'bg-[#D4AF37] border-[#D4AF37] text-white shadow-md shadow-[#D4AF37]/20' : 'bg-white/5 border-white/10 text-white/60'}`}>
+                            <button key={status} type="button" onClick={() => setRsvpStatus(status)} className={`py-3 rounded-md border transition-all text-[11px] font-bold uppercase tracking-wider ${rsvpStatus === status ? 'bg-[#D4AF37] border-[#D4AF37] text-white shadow-md shadow-[#D4AF37]/20' : 'bg-white/5 border-gray-200 text-white/60'}`}>
                               {status}
                             </button>
                           ))}
@@ -587,7 +588,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
               </section>
 
               {/* BAGIAN: HADIAH DIGITAL */}
-              <section id="gift" className="relative py-12 overflow-hidden">
+              <section id="kado" className="relative pt-12 pb-24 overflow-hidden">
                 <motion.div initial={{ y: 50, opacity: 0 }} whileInView={{ y: 0, opacity: 1 }} viewport={{ once: true }} className="absolute bottom-0 left-0 w-full z-10 pointer-events-none">
                   <img src="/images/modern-floral-red/3.png" alt="deco" className="w-full h-auto" />
                 </motion.div>
@@ -600,7 +601,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
 
                   <div className="space-y-6">
                     {data.gifts.map((gift, idx) => (
-                      <div key={idx} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 text-white relative overflow-hidden group hover:border-[#D4AF37]/50 transition-all">
+                      <div key={idx} className="bg-white/5 backdrop-blur-md border border-gray-200 rounded-2xl p-8 text-white relative overflow-hidden group hover:border-[#D4AF37]/50 transition-all">
                         <div className="flex flex-col items-center mb-6">
                           <div className="mb-4 h-12 w-full flex items-center justify-center">
                             {gift.logo ? (
@@ -622,7 +623,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                           <p className="text-lg font-bold text-white">{gift.accountHolder}</p>
                         </div>
 
-                        <button onClick={() => handleCopy(gift.accountNo, gift.bankName)} className="w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl text-[10px] uppercase font-bold tracking-[0.3em] border border-white/10 transition-all flex items-center justify-center gap-2">
+                        <button onClick={() => handleCopy(gift.accountNo, gift.bankName)} className="w-full py-4 bg-white/5 hover:bg-white/10 text-white rounded-xl text-[10px] uppercase font-bold tracking-[0.3em] border border-gray-200 transition-all flex items-center justify-center gap-2">
                           {copiedBank === gift.bankName ? '✅ Berhasil Tersalin' : '📋 Salin Rekening'}
                         </button>
                       </div>
@@ -632,7 +633,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
               </section>
 
               {/* BAGIAN 3: UCAPAN & DOA */}
-              <section id="wishes" className="relative py-12 overflow-hidden">
+              <section id="wishes" className="relative pt-12 pb-24 overflow-hidden">
                 {/* Dekorasi Atas & Bawah di Bagian 3 */}
                 <motion.div
                   initial={{ y: -50, opacity: 0 }}
@@ -706,13 +707,13 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
-                className="relative text-center py-10 px-10 bg-[#8b0000] overflow-hidden z-20" style={{ backgroundImage: 'url("/images/modern-floral-red/4.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}
+                className="relative text-center pt-10 pb-4 px-10 bg-[#8b0000] overflow-hidden z-20" style={{ backgroundImage: 'url("/images/modern-floral-red/4.png")', backgroundSize: 'cover', backgroundPosition: 'center' }}
               >
                 <div className="relative z-10 text-white pt-6 pb-12 text-center">
                   <p className={`text-5xl text-white mb-4 ${greatVibes.className} drop-shadow-xl text-center`}>{data.brideShort} & {data.groomShort}</p>
                   <p className="text-sm text-white/60 mb-10 italic tracking-wide font-light text-center">Sampai jumpa di hari bahagia kami</p>
 
-                  <div className="pt-8 border-t border-white/10 flex flex-col items-center">
+                  <div className="pt-8 border-t border-gray-200 flex flex-col items-center">
                     <p className="text-[10px] text-white/40 uppercase tracking-[0.3em] mb-4 font-bold text-center">Digital Invitation by</p>
                     <a href="https://garasicetak.com" target="_blank" className="flex items-center gap-3 group">
                       <img src="/images/logo.png" alt="logo" className="w-14 h-14 object-contain transition-opacity" />
@@ -740,22 +741,13 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
         </button>
 
         {/* NAVIGATION BOTTOM */}
-        <nav className={`fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[450px] bg-[#1a1a1a]/90 backdrop-blur-xl border-t border-white/10 rounded-t-md p-2 flex justify-around items-center shadow-md z-[9999] opacity-0 transition-all duration-500 pointer-events-none [&.active]:opacity-100 [&.active]:pointer-events-auto ${isOpen ? 'active' : ''}`}>
-          {[
-            { id: '#home', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></svg>, label: 'Muka' },
-            { id: '#section-1', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>, label: 'Mempelai' },
-            { id: '#event', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>, label: 'Acara' },
-            { id: '#gallery', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2" /><circle cx="8.5" cy="8.5" r="1.5" /><polyline points="21 15 16 10 5 21" /></svg>, label: 'Galeri' },
-            { id: '#rsvp-section', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" /><polyline points="22 4 12 14.01 9 11.01" /></svg>, label: 'RSVP' },
-            { id: '#gift', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 12 20 22 4 22 4 12" /><rect x="2" y="7" width="20" height="5" /><line x1="12" y1="22" x2="12" y2="7" /><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z" /><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z" /></svg>, label: 'Kado' },
-            { id: '#wishes', icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /></svg>, label: 'Doa' }
-          ].map((link) => (
-            <a key={link.id} href={link.id} className="flex flex-col items-center justify-center w-auto h-auto text-white/50 hover:text-[#D4AF37] transition-all px-1">
-              {link.icon}
-              <span className="text-[6px] uppercase tracking-tighter mt-1 font-bold">{link.label}</span>
-            </a>
-          ))}
-        </nav>
+        <InvitationBottomNav 
+          isOpen={isOpen} 
+          theme="modern" 
+          activeColor="text-[#8B0000]" 
+          textColor="text-gray-500" 
+          bgColor="bg-white/95"
+        />
       </div>
     </div>
   );

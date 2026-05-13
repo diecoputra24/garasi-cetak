@@ -16,7 +16,7 @@ async function rawUpdateInvitation(id: string, data: any) {
     ];
 
     const fields = Object.keys(data).filter(k => allowedColumns.includes(k));
-    const setClause = fields.map(k => `"${k}" = ?`).join(', ');
+    const setClause = fields.map((k, i) => `"${k}" = $${i + 1}`).join(', ');
     const values = fields.map(k => {
         const val = data[k];
         if (val instanceof Date) return val.toISOString();
@@ -26,7 +26,7 @@ async function rawUpdateInvitation(id: string, data: any) {
     console.log(`Updating invitation ${id} with fields:`, fields);
     
     await (prisma as any).$executeRawUnsafe(
-        `UPDATE "invitation" SET ${setClause} WHERE "id" = ?`,
+        `UPDATE "invitation" SET ${setClause} WHERE "id" = $${fields.length + 1}`,
         ...values,
         id
     );
@@ -44,7 +44,7 @@ async function rawCreateInvitation(data: any) {
 
     const fields = Object.keys(data).filter(k => allowedColumns.includes(k));
     const columns = fields.map(k => `"${k}"`).join(', ');
-    const placeHolders = fields.map(_ => '?').join(', ');
+    const placeHolders = fields.map((_, i) => `$${i + 1}`).join(', ');
     const values = fields.map(k => {
         const val = data[k];
         if (val instanceof Date) return val.toISOString();
@@ -144,7 +144,7 @@ export async function getInvitationById(id: string) {
     if (!session) throw new Error("Unauthorized");
 
     const inv = await prisma.$queryRawUnsafe(
-        `SELECT * FROM "invitation" WHERE "id" = ? AND "userId" = ?`,
+        `SELECT * FROM "invitation" WHERE "id" = $1 AND "userId" = $2`,
         id,
         session.user.id
     ) as any[];
@@ -305,7 +305,7 @@ export async function incrementInvitationViews(slug: string) {
 
         // Find invitation ID using raw query for reliability
         const invitations = await (prisma as any).$queryRawUnsafe(
-            `SELECT "id" FROM "invitation" WHERE "slug" = ?`,
+            `SELECT "id" FROM "invitation" WHERE "slug" = $1`,
             slug
         ) as any[];
         
@@ -316,7 +316,7 @@ export async function incrementInvitationViews(slug: string) {
         const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000).toISOString();
         const recentVisits = await (prisma as any).$queryRawUnsafe(`
             SELECT "id" FROM "visit_log" 
-            WHERE "invitationId" = ? AND "ipAddress" = ? AND "createdAt" >= ?
+            WHERE "invitationId" = $1 AND "ipAddress" = $2 AND "createdAt" >= $3
             LIMIT 1
         `, inv.id, ip, thirtyMinsAgo) as any[];
 
@@ -325,14 +325,14 @@ export async function incrementInvitationViews(slug: string) {
         if (!recentVisit) {
             // Increment views count
             await (prisma as any).$executeRawUnsafe(
-                `UPDATE "invitation" SET "views" = COALESCE("views", 0) + 1 WHERE "id" = ?`,
+                `UPDATE "invitation" SET "views" = COALESCE("views", 0) + 1 WHERE "id" = $1`,
                 inv.id
             );
 
             // Create detailed log
             const logId = Math.random().toString(36).substring(2, 15);
             await (prisma as any).$executeRawUnsafe(
-                `INSERT INTO "visit_log" ("id", "invitationId", "ipAddress", "userAgent", "deviceType", "createdAt") VALUES (?, ?, ?, ?, ?, ?)`,
+                `INSERT INTO "visit_log" ("id", "invitationId", "ipAddress", "userAgent", "deviceType", "createdAt") VALUES ($1, $2, $3, $4, $5, $6)`,
                 logId,
                 inv.id,
                 ip,

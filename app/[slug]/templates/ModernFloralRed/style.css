@@ -200,10 +200,12 @@ html, body {
   left: calc(50% - (var(--mobile-width) / 2) + 24px);
 }
 
-@media (max-width: 450px) {
-  .audio-btn {
-    left: 24px;
-  }
+@media (max-width: 768px) {
+  html, body, .outer-container { background-color: #8B0000 !important; }
+  .main-mobile-frame { max-width: none !important; width: 100% !important; box-shadow: none; }
+  .cover-section { width: 100% !important; max-width: none !important; left: 0 !important; transform: none !important; }
+  .cover-section.opened { transform: translateY(-100%) !important; }
+  .audio-btn { left: 24px !important; }
 }
 
 .audio-spinning {

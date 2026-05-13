@@ -8,6 +8,7 @@ import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { Heart, Calendar, MapPin, Clock, Copy, Check, Music, Volume2, VolumeX, Send, Gift, Landmark } from 'lucide-react';
 import { useInvitation, InvitationData } from '@/components/templates/shared/useInvitation';
 import { InvitationGallery } from '@/components/templates/shared/InvitationGallery';
+import { InvitationBottomNav } from '@/components/templates/shared/InvitationBottomNav';
 
 const playfair = Playfair_Display({ subsets: ['latin'], display: 'swap' });
 const greatVibes = Great_Vibes({ weight: '400', subsets: ['latin'], display: 'swap' });
@@ -281,7 +282,7 @@ export default function SoftFloralPinkTemplate({ data }: TemplateProps) {
                  initial="hidden"
                  whileInView="visible"
                  viewport={{ once: true }}
-                 className="text-center min-h-screen flex flex-col items-center justify-center relative z-10 py-10"
+                 className="text-center min-h-screen flex flex-col items-center justify-center relative z-10 pt-10 pb-24"
                 >
                   <motion.p variants={fadeInDown} className={`${cormorant.className} text-2xl mb-6 text-[#4A3737] tracking-widest`}>The Wedding Of</motion.p>
                   
@@ -600,9 +601,9 @@ export default function SoftFloralPinkTemplate({ data }: TemplateProps) {
                               initial={{ opacity: 0, scale: 0.8 }}
                               whileInView={{ opacity: 1, scale: 1 }}
                               viewport={{ once: true }}
-                              className="w-28 aspect-square overflow-hidden border-2 border-white shadow-md rounded-lg mb-2"
+                              className="relative w-28 aspect-square overflow-hidden border bg-white-2 border-white shadow-md rounded-lg mb-2"
                             >
-                              <img src={fixImageUrl(item.image)} alt={item.title} className="w-full h-full object-cover" onError={(e) => { e.currentTarget.src = "/images/couple.png"; }} />
+                              <img src={fixImageUrl(item.image)} alt={item.title} className="absolute inset-0 w-full h-full object-cover" onError={(e) => { e.currentTarget.src = "/images/couple.png"; }} />
                             </motion.div>
                           )}
                           <div>
@@ -837,6 +838,12 @@ export default function SoftFloralPinkTemplate({ data }: TemplateProps) {
             </footer>
             </div>
 
+            <InvitationBottomNav 
+              isOpen={isOpen} 
+              bgColor="bg-white/90" 
+              textColor="text-[#B18585]" 
+              activeColor="text-[#7A5C5C]" 
+            />
           </motion.main>
         )}
       </div>

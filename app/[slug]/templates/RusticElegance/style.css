@@ -99,3 +99,11 @@ html {
 .rustic-nav-item.active {
     color: #D4AF37;
 }
+
+@media (max-width: 768px) {
+  html, body, .rustic-outer-container { background-color: #2c2a26 !important; }
+  .rustic-mobile-frame { max-width: none !important; width: 100% !important; box-shadow: none; }
+  .cover-section { width: 100% !important; max-width: none !important; left: 0 !important; transform: none !important; }
+  .cover-section.opened { transform: translateY(-100%) !important; }
+  .rustic-audio-btn { left: 20px !important; }
+}

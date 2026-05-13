@@ -347,7 +347,7 @@ body {
   position: relative;
   width: 55vw;
   max-width: 230px;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/5;
   margin: 0 auto;
   padding: 0;
   background: white;
@@ -377,7 +377,7 @@ body {
   object-fit: cover;
   object-position: center;
   display: block;
-  transform: scale(1.05);
+  transform: scale(1);
 }
 
 .ampersand-text {
@@ -429,11 +429,12 @@ body {
   left: calc(50% - (var(--mobile-width) / 2) + 24px);
 }
 
-@media (max-width: 450px) {
-  .audio-btn-blue {
-    left: 24px;
-    bottom: 100px;
-  }
+@media (max-width: 768px) {
+  html, body, .outer-container { background-color: #0c1a2e !important; }
+  .main-mobile-frame { max-width: none !important; width: 100% !important; box-shadow: none; }
+  .cover-section { width: 100% !important; max-width: none !important; left: 0 !important; transform: none !important; }
+  .cover-section.opened { transform: translateY(-100%) !important; }
+  .audio-btn-blue { left: 24px !important; }
 }
 
 .audio-btn-blue:hover {
@@ -505,6 +506,7 @@ main>section:nth-child(n+2) {
   padding-top: 5px;
   z-index: 10;
   position: relative;
+  padding-bottom: 0;
 }
 
 /* ===== RESPONSIVE ===== */
