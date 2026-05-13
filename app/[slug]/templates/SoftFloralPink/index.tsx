@@ -823,13 +823,15 @@ export default function SoftFloralPinkTemplate({ data }: TemplateProps) {
                  <h2 className={`${sacramento.className} text-5xl mb-4 text-[#B18585]`}>{data.brideShort} & {data.groomShort}</h2>
                  <p className={`${cormorant.className} text-lg italic mb-12 text-[#7A5C5C]`}>Sampai jumpa di hari bahagia kami</p>
                  
-                  <div className="pt-8 border-t border-[#B18585]/20">
-                     <p className="text-[10px] uppercase tracking-[0.3em] mb-6 font-bold text-[#B18585]/30">Digital Invitation by</p>
-                     <a href="https://garasicetak.com" target="_blank" className="flex items-center justify-center gap-3 group opacity-70 hover:opacity-100 transition-all">
-                        <img src="/images/logo.png" alt="logo" className="h-12 w-auto grayscale group-hover:grayscale-0 transition-all" />
+                  <div className="pt-12 border-t border-[#B18585]/10">
+                     <p className="text-[10px] uppercase tracking-[0.4em] mb-4 font-bold text-[#B18585]/40">Digital Invitation by</p>
+                     <a href="https://garasicetak.com" target="_blank" className="flex items-center justify-center gap-4 group opacity-80 hover:opacity-100 transition-all">
+                        <div className="w-12 h-12 flex-shrink-0">
+                          <img src="/images/logo.png" alt="logo" className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all" />
+                        </div>
                         <div className="text-left">
-                          <span className="text-xl font-bold block text-[#B18585]">Garasi Cetak</span>
-                          <span className="text-[8px] italic opacity-50 block tracking-widest text-[#B18585]">www.garasicetak.com</span>
+                          <span className="text-lg font-bold block text-[#B18585] leading-none mb-1">Garasi Cetak</span>
+                          <span className="text-[9px] italic opacity-60 block tracking-widest text-[#B18585]">www.garasicetak.com</span>
                         </div>
                      </a>
                   </div>
