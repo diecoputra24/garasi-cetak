@@ -228,7 +228,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                   <div className="flex flex-col items-center gap-10 mb-12">
                     <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center group">
                       <div className="w-48 h-64 mx-auto mb-6 border-8 border-white bg-white shadow-2xl rotate-[-2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
-                        <img src={fixImageUrl(data.brideImage) || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&h=400&auto=format&fit=crop"} className="absolute inset-0 w-full h-full object-cover" alt="bride" />
+                        <img src={fixImageUrl(data.brideImage) || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&h=400&auto=format&fit=crop"} className="absolute inset-0 w-full h-full object-cover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="bride" />
                       </div>
                       <h2 className={`text-5xl text-white mb-3 leading-tight ${greatVibes.className} drop-shadow-xl`}>{data.brideName}</h2>
                       <p className="font-bold text-[10px] uppercase tracking-[0.3em] text-white mb-1 drop-shadow-md">dari :</p>
@@ -247,7 +247,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
 
                     <motion.div variants={fadeInUp} initial="hidden" whileInView="visible" viewport={{ once: true }} className="text-center group">
                       <div className="w-48 h-64 mx-auto mb-6 border-8 border-white bg-white shadow-2xl rotate-[2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
-                        <img src={fixImageUrl(data.groomImage) || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop"} className="absolute inset-0 w-full h-full object-cover" alt="groom" />
+                        <img src={fixImageUrl(data.groomImage) || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&auto=format&fit=crop"} className="absolute inset-0 w-full h-full object-cover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="groom" />
                       </div>
                       <h2 className={`text-5xl text-white mb-3 leading-tight ${greatVibes.className} drop-shadow-xl`}>{data.groomName}</h2>
                       <p className="font-bold text-[10px] uppercase tracking-[0.3em] text-white mb-1 drop-shadow-md">dari :</p>
@@ -492,7 +492,7 @@ export default function ModernFloralRedTemplate({ data }: TemplateProps) {
                                     viewport={{ once: true }}
                                     className="relative w-32 aspect-square overflow-hidden border bg-white border-gray-200 shadow-lg mb-2"
                                   >
-                                    <img src={fixImageUrl(item.image)} alt={item.title} className="absolute inset-0 w-full h-full object-cover" />
+                                    <img src={fixImageUrl(item.image)} alt={item.title} className="absolute inset-0 w-full h-full object-cover" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                                   </motion.div>
                                 )}
                                 <div>

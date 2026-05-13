@@ -267,7 +267,7 @@ function InvitationContent() {
                       className="text-center group"
                     >
                       <div className="w-52 h-64 mx-auto mb-6 border-8 border-white shadow-lg rotate-[-2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
-                        <img src="/images/modern-floral-red/gallery-1.png" className="w-full h-full object-cover" alt="groom" />
+                        <img src="/images/modern-floral-red/gallery-1.png" className="absolute inset-0 w-full h-full object-cover" alt="groom" />
                       </div>
                       <h2 className={`text-5xl text-white mb-3 leading-tight ${greatVibes.className} drop-shadow-xl`}>Romeo Montague</h2>
                       <p className="font-bold text-[10px] uppercase tracking-[0.3em] text-white mb-1 drop-shadow-md">Putra dari :</p>
@@ -295,7 +295,7 @@ function InvitationContent() {
                       className="text-center group"
                     >
                       <div className="w-52 h-64 mx-auto mb-6 border-8 border-white shadow-lg rotate-[2deg] overflow-hidden relative transition-transform group-hover:rotate-0 duration-500">
-                        <img src="/images/modern-floral-red/gallery-2.png" className="w-full h-full object-cover" alt="bride" />
+                        <img src="/images/modern-floral-red/gallery-2.png" className="absolute inset-0 w-full h-full object-cover" alt="bride" />
                       </div>
                       <h2 className={`text-5xl text-white mb-3 leading-tight ${greatVibes.className} drop-shadow-xl`}>Juliet Capulet</h2>
                       <p className="font-bold text-[10px] uppercase tracking-[0.3em] text-white mb-1 drop-shadow-md">Putri dari :</p>
@@ -461,13 +461,13 @@ function InvitationContent() {
                   </motion.h2>
                   <motion.div initial={{ width: 0 }} whileInView={{ width: 64 }} viewport={{ once: true }} className="h-[2px] bg-white/30 mx-auto mb-10 shadow-sm"></motion.div>
 
-                  <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-2 gap-3">
-                    {[1, 2, 3, 4, 5, 6].map((num) => (
-                      <motion.div key={num} variants={scaleIn} className={`relative rounded-lg overflow-hidden border-2 border-white/20 shadow-xl ${num % 3 === 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-[3/4]'}`}>
-                        <Image src={`/images/modern-floral-red/gallery-${num === 3 ? 1 : num === 6 ? 2 : (num % 2 === 0 ? 2 : 1)}.png`} fill style={{ objectFit: 'cover' }} alt="gallery" className="hover:scale-110 transition-transform duration-700" />
-                      </motion.div>
-                    ))}
-                  </motion.div>
+                    <motion.div variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className="grid grid-cols-2 gap-3">
+                      {[1, 2, 3, 4, 5, 6].map((num) => (
+                        <motion.div key={num} variants={scaleIn} className={`relative rounded-lg overflow-hidden border-2 border-white/20 shadow-xl ${num % 3 === 0 ? 'col-span-2 aspect-[16/9]' : 'aspect-square'}`}>
+                          <img src={`/images/modern-floral-red/gallery-${num === 3 ? 1 : num === 6 ? 2 : (num % 2 === 0 ? 2 : 1)}.png`} alt="gallery" className="absolute inset-0 w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+                        </motion.div>
+                      ))}
+                    </motion.div>
                 </div>
               </section>
 
