@@ -28,7 +28,7 @@ export const InvitationGallery: React.FC<InvitationGalleryProps> = ({ images, fi
             <img 
               src={fixImageUrl(url)} 
               alt="gallery" 
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+              className="absolute inset-0 w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
             />
           </motion.div>
         ))}
