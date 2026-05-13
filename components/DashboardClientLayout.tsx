@@ -69,9 +69,11 @@ export function DashboardClientLayout({
                 <div className="flex flex-col h-full relative">
                     {/* Brand Section */}
                     <div className="h-16 flex items-center gap-3 px-6 border-b border-slate-100 overflow-hidden shrink-0">
-                        <img src="/images/logo.png" alt="logo" className="h-8 w-auto object-contain shrink-0" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                        <div className="flex flex-col leading-none">
-                            <span className="text-base font-medium bg-gradient-to-r from-blue-600 to-rose-600 bg-clip-text text-transparent whitespace-nowrap">
+                        <div className="w-8 h-8 shrink-0 flex items-center justify-center">
+                            <img src="/images/logo.png" alt="logo" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                        </div>
+                        <div className="flex flex-col leading-none min-w-0">
+                            <span className="text-base font-medium bg-gradient-to-r from-blue-600 to-rose-600 bg-clip-text text-transparent whitespace-nowrap truncate">
                                 Garasi Cetak
                             </span>
                             <span className="text-[10px] text-slate-500 font-medium mt-1">Management</span>
