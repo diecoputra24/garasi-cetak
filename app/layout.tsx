@@ -28,6 +28,7 @@ const poppins = Poppins({
 
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://garasicetak.com'),
   title: "Garasi Cetak",
   description: "Platform pembuatan undangan digital terbaik untuk Pernikahan, Khitanan, Ulang Tahun, dan Aqiqah. Desain eksklusif, fitur lengkap, dan sebar tanpa batas.",
   keywords: ["undangan digital", "undangan online", "undangan pernikahan", "wedding website", "garasi cetak", "undangan khitanan digital", "undangan aqiqah", "buat undangan digital"],

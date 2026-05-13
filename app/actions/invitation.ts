@@ -332,7 +332,7 @@ export async function incrementInvitationViews(slug: string) {
         const thirtyMinsAgo = new Date(Date.now() - 30 * 60 * 1000);
         const recentVisits = await (prisma as any).$queryRawUnsafe(`
             SELECT "id" FROM "visit_log" 
-            WHERE "invitationId" = $1 AND "ipAddress" = $2 AND "createdAt" >= $3
+            WHERE "invitationId" = $1 AND "ipAddress" = $2 AND "createdAt" >= $3::timestamp
             LIMIT 1
         `, inv.id, ip, thirtyMinsAgo) as any[];
 
