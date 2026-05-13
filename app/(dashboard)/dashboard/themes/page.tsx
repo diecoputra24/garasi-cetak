@@ -22,12 +22,12 @@ export default function ThemesPage() {
                 <div className="space-y-2">
                     <div className="flex items-center gap-2 mb-1">
                         <div className="w-8 h-[2px] bg-blue-600 rounded-full" />
-                        <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em]">Design Laboratory</span>
+                        <span className="text-sm text-blue-600">Design Laboratory</span>
                     </div>
-                    <h1 className="text-3xl font-black tracking-tight text-slate-900 uppercase leading-none italic">
+                    <h1 className="text-3xl  text-slate-900 leading-none">
                         THEMES CATALOG
                     </h1>
-                    <p className="text-xs text-gray-500 font-bold uppercase tracking-widest">Pilih arsitektur desain untuk instance undangan Anda.</p>
+                    <p className="text-sm text-gray-500 font-medium">Pilih arsitektur desain untuk instance undangan Anda.</p>
                 </div>
             </div>
 
@@ -44,7 +44,7 @@ export default function ThemesPage() {
                     >
                         {/* Status Badge */}
                         {selected === theme.id && (
-                            <div className="absolute top-0 right-0 bg-blue-600 text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-2 z-20 rounded-bl-sm flex items-center gap-2 shadow-lg shadow-blue-600/20">
+                            <div className="absolute top-0 right-0 bg-blue-600 text-white text-sm px-4 py-2 z-20 rounded-bl-sm flex items-center gap-2 shadow-lg shadow-blue-600/20">
                                 <Check size={12} strokeWidth={4} /> ACTIVE
                             </div>
                         )}
@@ -57,8 +57,8 @@ export default function ThemesPage() {
                             </div>
 
                             <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-slate-950/90 to-transparent">
-                                <h3 className="text-lg font-black text-white mb-1 uppercase tracking-tight italic">{theme.name}</h3>
-                                <p className="text-white/60 text-[10px] font-bold uppercase tracking-widest">{theme.desc}</p>
+                                <h3 className="text-lg text-white mb-1 ">{theme.name}</h3>
+                                <p className="text-white/60 text-sm font-medium">{theme.desc}</p>
                             </div>
                         </div>
 
@@ -66,7 +66,7 @@ export default function ThemesPage() {
                         <div className="p-6 space-y-3">
                             <Link
                                 href={`/dashboard/builder?theme=${theme.id}`}
-                                className={`w-full py-3 rounded-sm text-[10px] font-black transition-all text-center uppercase tracking-[0.2em] block ${selected === theme.id
+                                className={`w-full py-3 rounded-sm text-sm transition-all text-center block ${selected === theme.id
                                         ? "bg-blue-600 text-white shadow-lg shadow-blue-600/20"
                                         : "bg-gray-50 text-slate-500 hover:bg-gray-100 border border-gray-200"
                                     }`}
@@ -76,7 +76,7 @@ export default function ThemesPage() {
                             <Link
                                 href={`/invitation/${theme.id}`}
                                 target="_blank"
-                                className="w-full inline-flex items-center justify-center gap-2 py-1 text-[10px] font-black text-gray-400 hover:text-blue-600 transition-colors uppercase tracking-[0.2em]"
+                                className="w-full inline-flex items-center justify-center gap-2 py-1 text-sm text-gray-400 hover:text-blue-600 transition-colors"
                             >
                                 <Eye className="w-4 h-4" strokeWidth={3} />
                                 OPEN PREVIEW

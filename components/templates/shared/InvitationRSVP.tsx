@@ -48,29 +48,29 @@ export const InvitationRSVP = ({
         <div className={containerClasses}>
             {!hideHeader && (
                 <>
-                    <h2 className={`text-3xl mb-4 text-[#C9A84C] font-bold text-center ${titleFont}`}>Konfirmasi Kehadiran</h2>
-                    <p className={`text-center ${subtextColor} text-xs mb-8 italic`}>Kehadiran Anda adalah kado terindah bagi kami</p>
+                    <h2 className={`text-3xl mb-4 text-[#C9A84C] font-medium text-center ${titleFont}`}>Konfirmasi Kehadiran</h2>
+                    <p className={`text-center ${subtextColor} text-xs mb-8`}>Kehadiran Anda adalah kado terindah bagi kami</p>
                 </>
             )}
             
             <form onSubmit={handleRSVP} className="w-full max-w-[340px] space-y-5 mx-auto">
                 <div className="w-full space-y-1.5">
-                    <label className={`text-[10px] uppercase font-bold ${labelColor} mb-1 ml-1 block tracking-widest`}>Nama Lengkap</label>
+                    <label className={`text-[10px] font-medium ${labelColor} mb-1 ml-1 block`}>Nama Lengkap</label>
                     <input 
                         value={rsvpName} 
                         onChange={(e) => setRsvpName(e.target.value)} 
                         placeholder={theme === 'modern' ? "Contoh: Budi & Keluarga" : "Nama Anda"} 
-                        className={`w-full px-5 py-4 rounded-md text-black outline-none font-bold text-sm shadow-inner ${inputBg} ${theme === 'rustic' ? 'rounded-xl' : ''}`} 
+                        className={`w-full px-5 py-4 rounded-md text-black outline-none font-medium text-sm shadow-inner ${inputBg} ${theme === 'rustic' ? 'rounded-xl' : ''}`} 
                         required 
                     />
                 </div>
 
                 <div className="w-full relative space-y-1.5">
-                    <label className={`text-[10px] uppercase font-bold ${labelColor} mb-1 ml-1 block tracking-widest`}>Jumlah Orang</label>
+                    <label className={`text-[10px] font-medium ${labelColor} mb-1 ml-1 block`}>Jumlah Orang</label>
                     <button 
                         type="button" 
                         onClick={() => setIsTotalDropdownOpen(!isTotalDropdownOpen)} 
-                        className={`w-full px-5 py-4 rounded-md text-black font-bold text-sm flex items-center justify-between shadow-lg relative z-20 ${inputBg} ${theme === 'rustic' ? 'rounded-xl' : ''}`}
+                        className={`w-full px-5 py-4 rounded-md text-black font-medium text-sm flex items-center justify-between shadow-lg relative z-20 ${inputBg} ${theme === 'rustic' ? 'rounded-xl' : ''}`}
                     >
                         <span>{rsvpTotal} Orang</span>
                         <svg className={`w-4 h-4 transition-transform ${isTotalDropdownOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -92,7 +92,7 @@ export const InvitationRSVP = ({
                                         <div 
                                             key={num} 
                                             onClick={() => { setRsvpTotal(num.toString()); setIsTotalDropdownOpen(false); }} 
-                                            className="px-5 py-4 hover:bg-gray-50 text-black text-sm font-bold cursor-pointer border-b border-gray-50 last:border-0"
+                                            className="px-5 py-4 hover:bg-gray-50 text-black text-sm font-medium cursor-pointer border-b border-gray-50 last:border-0"
                                         >
                                             {num} Orang
                                         </div>
@@ -104,14 +104,14 @@ export const InvitationRSVP = ({
                 </div>
 
                 <div className="w-full space-y-1.5">
-                    <label className={`text-[10px] uppercase font-bold ${labelColor} mb-1 ml-1 block tracking-widest`}>Status Kehadiran</label>
+                    <label className={`text-[10px] font-medium ${labelColor} mb-1 ml-1 block`}>Status Kehadiran</label>
                     <div className="grid grid-cols-2 gap-3 w-full">
                         {['Hadir', 'Tidak Hadir'].map((s) => (
                             <button 
                                 key={s} 
                                 type="button" 
                                 onClick={() => setRsvpStatus(s)} 
-                                className={`w-full py-4 rounded-md border text-[10px] font-bold uppercase tracking-widest transition-all overflow-hidden whitespace-nowrap px-0 ${rsvpStatus === s ? (customButtonClass ? customButtonClass : 'bg-[#C9A84C] text-white border-[#C9A84C] shadow-xl') : `bg-white/5 ${flat ? 'text-[#1e3a5f]/60 border-[#1e3a5f]/20' : 'text-white/60 border-white/10'} hover:border-white/30`}`}
+                                className={`w-full py-4 rounded-md border text-[10px] font-medium transition-all overflow-hidden whitespace-nowrap px-0 ${rsvpStatus === s ? (customButtonClass ? customButtonClass : 'bg-[#C9A84C] text-white border-[#C9A84C] shadow-xl') : `bg-white/5 ${flat ? 'text-[#1e3a5f]/60 border-[#1e3a5f]/20' : 'text-white/60 border-white/10'} hover:border-white/30`}`}
                                 style={{ paddingLeft: 0, paddingRight: 0 }}
                             >
                                 {s}
@@ -123,7 +123,7 @@ export const InvitationRSVP = ({
                 <button 
                     type="submit" 
                     disabled={isSubmittingRSVP} 
-                    className={`w-full py-5 rounded-md text-[11px] font-bold uppercase tracking-[0.3em] shadow-2xl mt-4 active:scale-95 transition-transform ${customButtonClass ? customButtonClass : 'bg-[#C9A84C] text-white'} ${theme === 'rustic' ? 'rounded-xl' : ''}`}
+                    className={`w-full py-5 rounded-md text-[11px] font-medium shadow-2xl mt-4 active:scale-95 transition-transform ${customButtonClass ? customButtonClass : 'bg-[#C9A84C] text-white'} ${theme === 'rustic' ? 'rounded-xl' : ''}`}
                 >
                     {isSubmittingRSVP ? 'Mengirim...' : 'Kirim Konfirmasi'}
                 </button>

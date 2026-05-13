@@ -6,7 +6,7 @@ import AdvancedVisitorChart from "@/components/AdvancedVisitorChart";
 export default async function DashboardPage() {
     const session = await getServerSession();
 
-    if (!session) return <div className="p-8 text-center font-bold text-gray-400 uppercase tracking-widest text-xs">Sesi Berakhir. Harap Login Kembali.</div>;
+    if (!session) return <div className="p-8 text-center font-medium text-gray-400 text-sm">Sesi Berakhir. Harap Login Kembali.</div>;
 
     // Fetch Invitations with Theme relation
     const myInvitations = await prisma.invitation.findMany({
@@ -87,12 +87,12 @@ export default async function DashboardPage() {
                 <div className="space-y-2">
                     <div className="flex items-center gap-2 mb-1">
                         <div className="w-8 h-[2px] bg-blue-600 rounded-full" />
-                        <span className="text-[10px] font-black text-blue-600 uppercase tracking-[0.3em]">Market Intelligence Terminal</span>
+                        <span className="text-sm text-blue-600">Market Intelligence Terminal</span>
                     </div>
-                    <h1 className="text-3xl font-black tracking-tight text-slate-900 uppercase leading-none italic">
+                    <h1 className="text-3xl  text-slate-900 leading-none">
                         ANALYTICS COMMAND CENTER
                     </h1>
-                    <p className="text-xs text-gray-400 font-bold uppercase tracking-widest italic mt-2">Welcome, {session.user.name} // Pusat kendali monitoring trafik dan performa platform.</p>
+                    <p className="text-sm text-gray-400 font-medium mt-2">Welcome, {session.user.name} // Pusat kendali monitoring trafik dan performa platform.</p>
                 </div>
             </div>
 
@@ -104,11 +104,11 @@ export default async function DashboardPage() {
                             <div className={`p-2.5 rounded-sm ${stat.bg} ${stat.color}`}>
                                 <stat.icon size={18} strokeWidth={2.5} />
                             </div>
-                            <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none">Terminal Data</span>
+                            <span className="text-sm text-gray-400 leading-none">Terminal Data</span>
                         </div>
                         <div className="space-y-1">
-                            <div className="text-4xl font-black tracking-tight text-slate-900 tabular-nums italic leading-none">{stat.value}</div>
-                            <div className="text-[10px] text-gray-400 font-black uppercase tracking-widest mt-2">{stat.label}</div>
+                            <div className="text-4xl  text-slate-900 tabular-nums leading-none">{stat.value}</div>
+                            <div className="text-sm text-gray-400 mt-2">{stat.label}</div>
                         </div>
                     </div>
                 ))}
@@ -123,7 +123,7 @@ export default async function DashboardPage() {
                 {/* Device Distribution */}
                 <div className="lg:col-span-4 space-y-6">
                     <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                        <h2 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-3 text-slate-900 leading-none">
+                        <h2 className="text-sm flex items-center gap-3 text-slate-900 leading-none">
                             <Smartphone size={16} className="text-blue-600" /> Device Distribution
                         </h2>
                     </div>
@@ -139,9 +139,9 @@ export default async function DashboardPage() {
                                         <div className={`p-1.5 rounded-sm ${dev.color} text-white`}>
                                             <dev.icon size={12} />
                                         </div>
-                                        <span className="text-[11px] font-black uppercase tracking-widest text-slate-900">{dev.label}</span>
+                                        <span className="text-sm text-slate-900">{dev.label}</span>
                                     </div>
-                                    <span className="text-sm font-black italic text-slate-900">{dev.percentage}%</span>
+                                    <span className="text-sm text-slate-900">{dev.percentage}%</span>
                                 </div>
                                 <div className="h-1.5 w-full bg-slate-50 rounded-full overflow-hidden">
                                     <div className={`h-full ${dev.color} transition-all duration-1000`} style={{ width: `${dev.percentage}%` }} />
@@ -154,7 +154,7 @@ export default async function DashboardPage() {
                 {/* Template Performance */}
                 <div className="lg:col-span-12 space-y-6">
                     <div className="flex items-center justify-between border-b border-gray-100 pb-4">
-                        <h2 className="text-[11px] font-black uppercase tracking-[0.3em] flex items-center gap-3 text-slate-900 leading-none">
+                        <h2 className="text-sm flex items-center gap-3 text-slate-900 leading-none">
                             <Palette size={16} className="text-blue-600" /> Template Engagement Analysis
                         </h2>
                     </div>
@@ -164,12 +164,12 @@ export default async function DashboardPage() {
                                 <div key={i} className="space-y-4">
                                     <div className="flex justify-between items-end">
                                         <div>
-                                            <p className="text-[12px] font-black text-slate-900 uppercase italic tracking-tight leading-none">{theme.name}</p>
-                                            <p className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-2">{theme.count} Active Projects</p>
+                                            <p className="text-sm text-slate-900  leading-none">{theme.name}</p>
+                                            <p className="text-sm text-gray-400 font-medium mt-2">{theme.count} Active Projects</p>
                                         </div>
                                         <div className="text-right">
-                                            <p className="text-xl font-black text-slate-900 italic leading-none">{theme.views.toLocaleString()}</p>
-                                            <p className="text-[8px] text-blue-500 font-black uppercase tracking-[0.2em] mt-1 italic leading-none">TOTAL VIEWS</p>
+                                            <p className="text-xl text-slate-900 leading-none">{theme.views.toLocaleString()}</p>
+                                            <p className="text-sm text-blue-500 mt-1 leading-none">TOTAL VIEWS</p>
                                         </div>
                                     </div>
                                     <div className="h-2 w-full bg-slate-50 rounded-full overflow-hidden">

@@ -180,7 +180,7 @@ export default function AdvancedVisitorChart({ logs }: Props) {
     if (!mounted) {
         return (
             <div className="bg-white border border-gray-100 rounded-sm p-4 sm:p-6 shadow-sm min-h-[450px] animate-pulse flex items-center justify-center">
-                <p className="text-[10px] font-black text-gray-300 uppercase tracking-widest">Initializing Terminal...</p>
+                <p className="text-[10px] text-gray-300">Initializing Terminal...</p>
             </div>
         );
     }
@@ -195,7 +195,7 @@ export default function AdvancedVisitorChart({ logs }: Props) {
                         <button
                             key={f}
                             onClick={() => setRange(f)}
-                            className={`px-2 py-1 text-[9px] font-black uppercase tracking-tighter rounded-sm transition-all ${range === f
+                            className={`px-2 py-1 text-[9px] tracking-tighter rounded-sm transition-all ${range === f
                                 ? 'bg-blue-600 text-white shadow-md'
                                 : 'text-gray-400 hover:text-slate-900 hover:bg-gray-100'
                                 }`}
@@ -220,7 +220,7 @@ export default function AdvancedVisitorChart({ logs }: Props) {
                 <div className="p-1.5 bg-slate-900 text-white rounded-sm">
                     <Maximize2 size={12} />
                 </div>
-                <p className="text-[9px] text-gray-500 font-bold uppercase tracking-widest leading-none">
+                <p className="text-[9px] text-gray-500 font-medium leading-none">
                     Seleksi area pada grafik untuk ZOOM. Gunakan tombol <span className="text-blue-600">RESET</span> pada toolbar untuk kembali ke tampilan penuh.
                 </p>
             </div>

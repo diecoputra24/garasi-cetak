@@ -42,7 +42,7 @@ export const InvitationWishes = ({
                     value={newName} 
                     onChange={(e) => setNewName(e.target.value)} 
                     placeholder="Nama Anda" 
-                    className={`w-full px-5 py-4 rounded-md outline-none font-bold text-sm ${theme === 'modern' ? (flat ? 'bg-white border border-gray-100 mb-4 text-black' : 'bg-gray-50 border border-gray-200 mb-4 text-black') : 'bg-white/5 border border-white/10 text-white'}`} 
+                    className={`w-full px-5 py-4 rounded-md outline-none font-medium text-sm ${theme === 'modern' ? (flat ? 'bg-white border border-gray-100 mb-4 text-black' : 'bg-gray-50 border border-gray-200 mb-4 text-black') : 'bg-white/5 border border-white/10 text-white'}`} 
                     required 
                 />
                 <textarea 
@@ -50,13 +50,13 @@ export const InvitationWishes = ({
                     onChange={(e) => setNewMessage(e.target.value)} 
                     placeholder="Berikan ucapan selamat & doa" 
                     rows={4} 
-                    className={`w-full px-5 py-4 rounded-md outline-none text-sm ${theme === 'modern' ? (flat ? 'bg-white border border-gray-100 mb-5 text-black italic' : 'bg-gray-50 border border-gray-200 mb-5 text-black italic') : 'bg-white/5 border border-white/10 text-white italic'}`} 
+                    className={`w-full px-5 py-4 rounded-md outline-none text-sm ${theme === 'modern' ? (flat ? 'bg-white border border-gray-100 mb-5 text-black' : 'bg-gray-50 border border-gray-200 mb-5 text-black') : 'bg-white/5 border border-white/10 text-white'}`} 
                     required
                 ></textarea>
                 <button 
                     type="submit" 
                     disabled={isSubmittingWish} 
-                    className={`w-full py-5 rounded-md text-[11px] font-bold uppercase tracking-widest shadow-md transition-all active:scale-95 ${customButtonClass ? customButtonClass : (theme === 'modern' ? 'bg-[#1e3a5f] text-white' : 'rustic-btn-primary')}`}
+                    className={`w-full py-5 rounded-md text-[11px] font-medium shadow-md transition-all active:scale-95 ${customButtonClass ? customButtonClass : (theme === 'modern' ? 'bg-[#1e3a5f] text-white' : 'rustic-btn-primary')}`}
                 >
                     {isSubmittingWish ? 'Mengirim...' : 'Kirim Ucapan'}
                 </button>
@@ -66,8 +66,8 @@ export const InvitationWishes = ({
                 {localWishes.map((w, i) => (
                     <div key={i} className={`${theme === 'modern' ? 'pb-6 pt-4 border-b border-gray-100 last:border-0 relative text-left transition-all' : 'p-4 bg-white/5 rounded-xl border border-white/5 text-left'}`}>
                         <div className={`font-bold ${theme === 'modern' ? `text-base ${flat ? 'text-[#1e3a5f]' : 'text-[#8B0000]'} mb-1` : 'text-[#D4AF37]'}`}>{w.name}</div>
-                        {theme === 'modern' && <div className="text-[8px] text-gray-400 font-bold mb-3 uppercase tracking-[0.2em]">{w.time}</div>}
-                        <p className={`text-sm leading-relaxed italic ${theme === 'modern' ? 'text-gray-700 font-medium' : 'text-white'}`}>"{w.message}"</p>
+                        {theme === 'modern' && <div className="text-[8px] text-gray-400 font-medium mb-3">{w.time}</div>}
+                        <p className={`text-sm leading-relaxed ${theme === 'modern' ? 'text-gray-700 font-medium' : 'text-white'}`}>"{w.message}"</p>
                     </div>
                 ))}
             </div>

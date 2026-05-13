@@ -29,7 +29,7 @@ export const InvitationBottomNav = ({ isOpen, theme = 'modern' }: NavProps) => {
             {navItems.map((link) => (
                 <a key={link.id} href={link.id} className="flex flex-col items-center justify-center w-auto h-auto text-white/50 hover:text-[#D4AF37] transition-all px-1">
                     {link.icon}
-                    <span className="text-[6px] uppercase tracking-tighter mt-1 font-bold">{link.label}</span>
+                    <span className="text-[6px] tracking-tighter mt-1 font-medium">{link.label}</span>
                 </a>
             ))}
         </nav>

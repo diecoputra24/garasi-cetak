@@ -99,7 +99,7 @@ export const Lightbox: React.FC<LightboxProps> = ({ images, initialIndex, onClos
             />
             
             {/* Counter */}
-            <div className="absolute bottom-8 left-0 right-0 text-center text-white/50 text-xs font-bold tracking-[0.3em] uppercase">
+            <div className="absolute bottom-8 left-0 right-0 text-center text-white/50 text-xs font-medium">
               {currentIndex + 1} / {images.length}
             </div>
           </motion.div>

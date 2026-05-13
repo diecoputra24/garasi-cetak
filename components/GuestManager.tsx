@@ -232,7 +232,7 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                             {toast.type === 'success' ? <CheckCircle2 size={18} className="text-emerald-500" /> : 
                              toast.type === 'error' ? <AlertCircle size={18} className="text-rose-500" /> : 
                              <Info size={18} className="text-blue-500" />}
-                            <p className="text-[11px] font-bold text-slate-800 uppercase tracking-wider">{toast.message}</p>
+                            <p className="text-[11px] font-medium text-slate-800 tracking-wider">{toast.message}</p>
                         </motion.div>
                     ))}
                 </AnimatePresence>
@@ -255,11 +255,11 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                             exit={{ opacity: 0, y: 10 }}
                             className="relative bg-white border border-gray-100 w-full max-w-sm rounded-sm shadow-2xl p-6"
                         >
-                            <h3 className="text-[11px] font-black uppercase tracking-widest text-slate-900 mb-2">{confirmModal.title}</h3>
-                            <p className="text-[11px] text-gray-500 mb-8 font-medium italic italic italic">{confirmModal.message}</p>
+                            <h3 className="text-[11px] text-slate-900 mb-2">{confirmModal.title}</h3>
+                            <p className="text-[11px] text-gray-500 mb-8 font-medium">{confirmModal.message}</p>
                             <div className="flex justify-end gap-1">
-                                <button onClick={() => setConfirmModal({ ...confirmModal, show: false })} className="px-4 py-2 text-[10px] font-bold uppercase text-gray-400 hover:text-slate-900 transition-colors tracking-widest">Batal</button>
-                                <button onClick={() => confirmModal.onConfirm?.()} className="px-6 py-2 bg-blue-600 text-[10px] font-bold uppercase text-white rounded-sm active:scale-95 transition-all tracking-widest shadow-xl shadow-blue-600/10">Lanjutkan</button>
+                                <button onClick={() => setConfirmModal({ ...confirmModal, show: false })} className="px-4 py-2 text-[10px] font-medium text-gray-400 hover:text-slate-900 transition-colors">Batal</button>
+                                <button onClick={() => confirmModal.onConfirm?.()} className="px-6 py-2 bg-blue-600 text-[10px] font-medium text-white rounded-sm active:scale-95 transition-all shadow-xl shadow-blue-600/10">Lanjutkan</button>
                             </div>
                         </motion.div>
                     </div>
@@ -276,7 +276,7 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                     <button
                         key={tab.id}
                         onClick={() => setActiveTab(tab.id as any)}
-                        className={`relative flex items-center gap-2 py-4 px-6 text-xs font-black uppercase tracking-widest transition-all ${activeTab === tab.id
+                        className={`relative flex items-center gap-2 py-4 px-6 text-xs transition-all ${activeTab === tab.id
                             ? 'text-blue-600'
                             : 'text-gray-400 hover:text-slate-900'
                             }`}
@@ -312,11 +312,11 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                         placeholder="Cari nama tamu..."
                                         value={search}
                                         onChange={e => setSearch(e.target.value)}
-                                        className="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded text-xs outline-none focus:border-blue-500/50 transition-all font-medium italic"
+                                        className="w-full pl-10 pr-4 py-2 bg-white border border-gray-200 rounded text-xs outline-none focus:border-blue-500/50 transition-all font-medium"
                                     />
                                 </div>
                                 <div className="flex items-center gap-2">
-                                    <button className="px-4 py-2 bg-white border border-gray-200 rounded text-[10px] font-black text-slate-500 flex items-center gap-2 hover:bg-gray-50 transition-all uppercase tracking-widest">
+                                    <button className="px-4 py-2 bg-white border border-gray-200 rounded text-[10px] text-slate-500 flex items-center gap-2 hover:bg-gray-50 transition-all">
                                         <Download size={14} strokeWidth={3} /> Export CSV
                                     </button>
                                 </div>
@@ -331,7 +331,7 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                             placeholder="Nama Lengkap Tamu"
                                             value={newName}
                                             onChange={e => setNewName(e.target.value)}
-                                            className="w-full bg-white border border-gray-200 rounded px-4 py-2.5 text-xs font-bold uppercase tracking-tight focus:outline-none focus:border-blue-500 transition-all placeholder:font-medium placeholder:normal-case shadow-sm italic"
+                                            className="w-full bg-white border border-gray-200 rounded px-4 py-2.5 text-xs font-medium tracking-tight focus:outline-none focus:border-blue-500 transition-all placeholder:font-medium placeholder:normal-case shadow-sm"
                                         />
                                     </div>
                                     <div className="flex-1 relative">
@@ -346,7 +346,7 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                     <button
                                         type="submit"
                                         disabled={isSubmitting || !newName}
-                                        className="inline-flex items-center justify-center gap-2 px-8 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded text-xs font-black uppercase tracking-[0.2em] transition-all shadow-lg shadow-blue-600/20 active:scale-95 italic"
+                                        className="inline-flex items-center justify-center gap-2 px-8 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white rounded text-xs transition-all shadow-lg shadow-blue-600/20 active:scale-95"
                                     >
                                         {isSubmitting ? <Loader2 size={14} className="animate-spin" /> : <Plus size={14} strokeWidth={3} />}
                                         Add Guest
@@ -359,9 +359,9 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                 <table className="w-full text-left">
                                     <thead className="sticky top-0 bg-[#1a1c23] z-10">
                                         <tr>
-                                            <th className="px-8 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 italic">Guest Name / Index</th>
-                                            <th className="px-8 py-4 text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 italic">Communication</th>
-                                            <th className="px-8 py-4 text-right text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 italic">Action Control</th>
+                                            <th className="px-8 py-4 text-[10px] text-gray-400">Guest Name / Index</th>
+                                            <th className="px-8 py-4 text-[10px] text-gray-400">Communication</th>
+                                            <th className="px-8 py-4 text-right text-[10px] text-gray-400">Action Control</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-100">
@@ -369,7 +369,7 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                             <tr>
                                                 <td colSpan={3} className="px-8 py-20 text-center">
                                                     <Loader2 className="w-8 h-8 animate-spin mx-auto text-blue-600 mb-4" />
-                                                    <span className="text-[10px] text-gray-400 font-black uppercase tracking-[0.3em]">Synching with Database...</span>
+                                                    <span className="text-[10px] text-gray-400">Synching with Database...</span>
                                                 </td>
                                             </tr>
                                         ) : filteredGuests.length === 0 ? (
@@ -378,22 +378,22 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                                     <div className="w-16 h-16 bg-gray-50 inline-flex items-center justify-center rounded-full border border-dashed border-gray-200 mb-4">
                                                         <Users size={24} className="text-gray-200" />
                                                     </div>
-                                                    <p className="text-[10px] text-gray-400 font-black uppercase tracking-[0.3em]">No Guest Entry Detected</p>
+                                                    <p className="text-[10px] text-gray-400">No Guest Entry Detected</p>
                                                 </td>
                                             </tr>
                                         ) : filteredGuests.map((guest) => (
-                                            <tr key={guest.id} className="group hover:bg-blue-50/30 transition-all border-l-2 border-l-transparent hover:border-l-blue-600 italic">
+                                            <tr key={guest.id} className="group hover:bg-blue-50/30 transition-all border-l-2 border-l-transparent hover:border-l-blue-600">
                                                 <td className="px-8 py-4">
-                                                    <div className="font-black text-xs uppercase tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">{guest.name}</div>
-                                                    <div className="text-[9px] text-gray-400 font-bold uppercase tracking-widest mt-0.5 whitespace-nowrap">DB UID: {guest.id.substring(0,8)}</div>
+                                                    <div className="font-black text-xs tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">{guest.name}</div>
+                                                    <div className="text-[9px] text-gray-400 font-medium mt-0.5 whitespace-nowrap">DB UID: {guest.id.substring(0,8)}</div>
                                                 </td>
                                                 <td className="px-8 py-4">
                                                     {guest.phoneNumber ? (
-                                                        <div className="inline-flex items-center gap-2 text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-100 font-mono tracking-tight shadow-sm">
+                                                        <div className="inline-flex items-center gap-2 text-[10px] font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-sm border border-emerald-100 font-mono tracking-tight shadow-sm">
                                                             <MessageCircle size={10} /> {guest.phoneNumber}
                                                         </div>
                                                     ) : (
-                                                        <span className="text-[9px] text-gray-300 font-black uppercase tracking-widest italic">N/A</span>
+                                                        <span className="text-[9px] text-gray-300">N/A</span>
                                                     )}
                                                 </td>
                                                 <td className="px-8 py-4">
@@ -441,8 +441,8 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                             className="p-8 space-y-6"
                         >
                             <div className="bg-slate-900 p-6 rounded-sm border-l-4 border-blue-600 shadow-xl">
-                                <p className="font-black uppercase tracking-[0.2em] text-white text-[10px] mb-3 underline underline-offset-4 decoration-blue-500 italic">OPERATIONAL GUIDELINE:</p>
-                                <p className="text-[11px] text-gray-400 font-bold leading-relaxed mb-4 italic">Input data satu baris per tamu. Format: <span className="text-white italic">Nama Tamu, No Telepon</span></p>
+                                <p className="font-black text-white text-[10px] mb-3 underline underline-offset-4 decoration-blue-500">OPERATIONAL GUIDELINE:</p>
+                                <p className="text-[11px] text-gray-400 font-medium leading-relaxed mb-4">Input data satu baris per tamu. Format: <span className="text-white">Nama Tamu, No Telepon</span></p>
                                 <div className="bg-black/40 p-3 rounded font-mono text-[10px] text-blue-400 border border-white/5 space-y-1">
                                     <p>Bapak Sukirman, 62812345678</p>
                                     <p>Mbak Linda, 62812345679</p>
@@ -454,12 +454,12 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                 onChange={e => setBulkText(e.target.value)}
                                 rows={10}
                                 placeholder="PASTE RAW GUEST DATA HERE..."
-                                className="w-full bg-gray-50 border border-gray-200 rounded-sm p-6 text-xs font-mono focus:outline-none focus:border-blue-500 focus:bg-white transition-all shadow-inner uppercase placeholder:normal-case italic italic italic"
+                                className="w-full bg-gray-50 border border-gray-200 rounded-sm p-6 text-xs font-mono focus:outline-none focus:border-blue-500 focus:bg-white transition-all shadow-inner placeholder:normal-case"
                             />
                             <button
                                 onClick={handleBulkAdd}
                                 disabled={isSubmitting || !bulkText.trim()}
-                                className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white py-4 rounded-sm text-xs font-black uppercase tracking-[0.3em] flex items-center justify-center gap-2 shadow-xl shadow-blue-600/20 active:scale-[0.98] transition-all italic"
+                                className="w-full bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white py-4 rounded-sm text-xs flex items-center justify-center gap-2 shadow-xl shadow-blue-600/20 active:scale-[0.98] transition-all"
                             >
                                 {isSubmitting ? <Loader2 size={16} className="animate-spin" /> : <Check size={16} strokeWidth={3} />}
                                 DEPLOY BULK INSTANCE
@@ -479,8 +479,8 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                 <Upload size={36} strokeWidth={1.5} />
                             </div>
                             <div className="space-y-2">
-                                <h3 className="font-black text-xl tracking-tight text-slate-900 uppercase italic">Import Data Matrix</h3>
-                                <p className="text-[10px] text-gray-500 font-bold uppercase tracking-widest max-w-sm mx-auto leading-relaxed italic">
+                                <h3 className="font-black text-xl tracking-tight text-slate-900">Import Data Matrix</h3>
+                                <p className="text-[10px] text-gray-500 font-medium max-w-sm mx-auto leading-relaxed">
                                     Upload file .XLSX atau .CSV. Algoritma otomatis akan memetakan kolom identifikasi tamu.
                                 </p>
                             </div>
@@ -494,15 +494,15 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
                                 />
                                 <label
                                     htmlFor="excel-upload"
-                                    className="px-10 py-4 bg-slate-900 hover:bg-black text-white rounded-sm inline-flex items-center gap-3 cursor-pointer transition-all font-black text-xs uppercase tracking-[0.2em] shadow-xl active:scale-95 italic"
+                                    className="px-10 py-4 bg-slate-900 hover:bg-black text-white rounded-sm inline-flex items-center gap-3 cursor-pointer transition-all text-xs shadow-xl active:scale-95"
                                 >
                                     Select Source File
                                 </label>
                             </div>
                             <div className="flex items-center justify-center gap-4 pt-4">
-                                <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest px-2 py-1 border border-gray-100 rounded">.XLSX</span>
-                                <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest px-2 py-1 border border-gray-100 rounded">.CSV</span>
-                                <span className="text-[9px] font-black text-gray-300 uppercase tracking-widest px-2 py-1 border border-gray-100 rounded">.XLS</span>
+                                <span className="text-[9px] text-gray-300 px-2 py-1 border border-gray-100 rounded">.XLSX</span>
+                                <span className="text-[9px] text-gray-300 px-2 py-1 border border-gray-100 rounded">.CSV</span>
+                                <span className="text-[9px] text-gray-300 px-2 py-1 border border-gray-100 rounded">.XLS</span>
                             </div>
                         </motion.div>
                     )}
@@ -510,11 +510,11 @@ _Wassalamualaikum Warahmatullahi Wabarakatuh_`;
             </div>
 
             <div className="px-8 py-4 border-t border-gray-100 bg-[#1a1c23] flex items-center justify-between">
-                <p className="text-[9px] font-black text-gray-500 uppercase tracking-[0.3em] italic">
+                <p className="text-[9px] text-gray-500">
                     SYSTEM STATUS: <span className="text-emerald-500">NOMINAL / READY</span>
                 </p>
                 <div className="flex items-center gap-4">
-                     <p className="text-[9px] font-black text-gray-500 uppercase tracking-[0.3em] italic">
+                     <p className="text-[9px] text-gray-500">
                         DATA COUNTER: <span className="text-white">{guests.length}</span>
                     </p>
                 </div>

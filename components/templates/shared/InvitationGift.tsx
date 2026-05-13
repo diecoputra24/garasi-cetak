@@ -39,7 +39,7 @@ export const InvitationGift = ({ gifts, handleCopy, copiedBank, theme = 'modern'
                   <img src={logo} className="max-h-full object-contain" alt={gift.bankName} />
                 </div>
               ) : (
-                <h4 className="text-[#C9A84C] font-bold text-2xl italic tracking-widest mb-4 leading-none">
+                <h4 className="text-[#C9A84C] font-medium text-2xl mb-4 leading-none">
                   {gift.bankName === "Lainnya" ? gift.customBankName : gift.bankName}
                 </h4>
               )}
@@ -47,18 +47,18 @@ export const InvitationGift = ({ gifts, handleCopy, copiedBank, theme = 'modern'
             </div>
 
             <div className={`text-center space-y-1 mb-6 ${flat ? 'text-[#1e3a5f]' : 'text-white'}`}>
-              <p className={`text-[10px] uppercase tracking-[0.2em] font-bold ${flat ? 'text-[#1e3a5f]/40' : 'text-white/40'}`}>Nomor Rekening</p>
-              <p className="text-2xl font-bold tracking-widest">{gift.accountNo}</p>
+              <p className={`text-[10px] font-medium ${flat ? 'text-[#1e3a5f]/40' : 'text-white/40'}`}>Nomor Rekening</p>
+              <p className="text-2xl font-medium">{gift.accountNo}</p>
             </div>
 
             <div className={`text-center space-y-1 mb-8 ${flat ? 'text-[#1e3a5f]' : 'text-white'}`}>
-              <p className={`text-[10px] uppercase tracking-[0.2em] font-bold ${flat ? 'text-[#1e3a5f]/40' : 'text-white/40'}`}>Atas Nama</p>
-              <p className="text-lg font-bold">{gift.accountHolder}</p>
+              <p className={`text-[10px] font-medium ${flat ? 'text-[#1e3a5f]/40' : 'text-white/40'}`}>Atas Nama</p>
+              <p className="text-lg font-medium">{gift.accountHolder}</p>
             </div>
 
             <button
               onClick={() => handleCopy(gift.accountNo, gift.bankName)}
-              className={customButtonClass ? `w-full ${customButtonClass}` : `w-full py-3 rounded-xl text-[10px] uppercase font-bold tracking-[0.3em] border transition-all flex items-center justify-center gap-2 ${flat ? 'bg-[#1e3a5f]/10 text-[#1e3a5f] border-[#1e3a5f]/10 hover:bg-[#1e3a5f]/20' : 'bg-white/5 text-white border-white/10 hover:bg-white/10'}`}
+              className={customButtonClass ? `w-full ${customButtonClass}` : `w-full py-3 rounded-xl text-[10px] font-medium border transition-all flex items-center justify-center gap-2 ${flat ? 'bg-[#1e3a5f]/10 text-[#1e3a5f] border-[#1e3a5f]/10 hover:bg-[#1e3a5f]/20' : 'bg-white/5 text-white border-white/10 hover:bg-white/10'}`}
             >
               {copiedBank === gift.bankName ? '✅ Tersalin' : '📋 Salin Rekening'}
             </button>

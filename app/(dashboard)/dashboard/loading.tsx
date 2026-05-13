@@ -8,8 +8,8 @@ export default function DashboardLoading() {
                 </div>
             </div>
             <div className="flex flex-col items-center gap-1">
-                <span className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-900 italic">Processing</span>
-                <span className="text-[8px] font-bold uppercase tracking-widest text-gray-400">Requesting infrastructure data...</span>
+                <span className="text-sm text-slate-900">Processing</span>
+                <span className="text-sm font-medium text-gray-400">Requesting infrastructure data...</span>
             </div>
         </div>
     );

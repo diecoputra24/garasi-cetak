@@ -63,13 +63,13 @@ export default function DeleteInvitationButton({ id, redirectUrl, className }: {
                                     <AlertCircle size={20} />
                                 </div>
                                 <div className="space-y-1 pt-1">
-                                    <h3 className="text-xs font-black uppercase tracking-wider text-slate-900">Konfirmasi Hapus</h3>
-                                    <p className="text-[11px] text-gray-500 leading-relaxed font-medium italic italic">Seluruh data tamu, RSVP, dan ucapan pada project ini akan dihapus permanen. Lanjutkan?</p>
+                                    <h3 className="text-xs tracking-wider text-slate-900">Konfirmasi Hapus</h3>
+                                    <p className="text-[11px] text-gray-500 leading-relaxed font-medium">Seluruh data tamu, RSVP, dan ucapan pada project ini akan dihapus permanen. Lanjutkan?</p>
                                 </div>
                             </div>
                             <div className="flex justify-end gap-1 mt-8">
-                                <button onClick={() => setShowModal(false)} className="px-4 py-2 text-[10px] font-bold uppercase text-gray-400 hover:text-slate-900 transition-colors tracking-widest">Batal</button>
-                                <button onClick={handleDelete} className="px-6 py-2 bg-rose-600 text-[10px] font-bold uppercase text-white rounded-sm hover:bg-rose-700 transition-all tracking-widest shadow-xl shadow-rose-600/10 active:scale-95">Ya, Hapus Data</button>
+                                <button onClick={() => setShowModal(false)} className="px-4 py-2 text-[10px] font-medium text-gray-400 hover:text-slate-900 transition-colors">Batal</button>
+                                <button onClick={handleDelete} className="px-6 py-2 bg-rose-600 text-[10px] font-medium text-white rounded-sm hover:bg-rose-700 transition-all shadow-xl shadow-rose-600/10 active:scale-95">Ya, Hapus Data</button>
                             </div>
                         </motion.div>
                     </div>
@@ -90,7 +90,7 @@ export default function DeleteInvitationButton({ id, redirectUrl, className }: {
                             }`}
                         >
                             {t.type === 'success' ? <CheckCircle2 size={16} className="text-emerald-500" /> : <AlertCircle size={16} className="text-rose-500" />}
-                            <p className="text-[10px] font-black text-slate-800 uppercase tracking-widest">{t.message}</p>
+                            <p className="text-[10px] text-slate-800">{t.message}</p>
                         </motion.div>
                     ))}
                 </AnimatePresence>
