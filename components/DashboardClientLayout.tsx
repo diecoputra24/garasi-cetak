@@ -69,7 +69,7 @@ export function DashboardClientLayout({
                 <div className="flex flex-col h-full relative">
                     {/* Brand Section */}
                     <div className="h-16 flex items-center gap-3 px-6 border-b border-slate-100 overflow-hidden shrink-0">
-                        <img src="/images/logo.png" alt="logo" className="h-8 w-auto object-contain shrink-0" />
+                        <img src="/images/logo.png" alt="logo" className="h-8 w-auto object-contain shrink-0" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                         <div className="flex flex-col leading-none">
                             <span className="text-base font-medium bg-gradient-to-r from-blue-600 to-rose-600 bg-clip-text text-transparent whitespace-nowrap">
                                 Garasi Cetak
