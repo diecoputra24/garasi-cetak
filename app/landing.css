@@ -453,6 +453,7 @@
     transition: grid-template-rows 0.3s ease-out;
     color: var(--dark-muted);
     font-size: 0.95rem;
+    overflow: hidden;
 }
 .landing-page-root .faq-answer > p {
     overflow: hidden;
