@@ -8,7 +8,7 @@ import {
     Share2, Users, Music, UserCheck, Camera, 
     Calendar, MapPin, Timer, Image as ImageIcon, Heart, 
     MessageSquare, Gift, Video, QrCode, Infinity,
-    Layout, FileEdit, ClipboardCheck, Send, LogIn, User
+    Layout, FileEdit, ClipboardCheck, Send, LogIn, User, ChevronDown
 } from 'lucide-react';
 import { authClient } from '@/lib/auth-client';
 
@@ -17,6 +17,7 @@ export default function Home() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [filter, setFilter] = useState('semua');
     const [showModal, setShowModal] = useState(false);
+    const [openFaq, setOpenFaq] = useState<number | null>(null);
     const router = useRouter();
     const { data: session, isPending } = authClient.useSession();
 
@@ -47,6 +48,29 @@ export default function Home() {
         { id: 5, title: 'Elegant Khitanan', cat: 'khitanan', img: '/images/ornament.png', path: '#' },
         { id: 6, title: 'Playful Party', cat: 'ulang-tahun', img: '/images/hero.png', path: '#' },
         { id: 7, title: 'Aqiqah Modern Blue', cat: 'aqiqah', img: '/images/ornament.png', path: '#' },
+    ];
+
+    const faqData = [
+        {
+            q: "Bagaimana cara memesan undangan digital?",
+            a: "Sangat mudah! Pilih desain yang Anda sukai dari katalog kami, klik 'Coba Sekarang' atau hubungi kami via WhatsApp. Anda akan dipandu untuk mengisi detail acara dan foto."
+        },
+        {
+            q: "Berapa lama proses pembuatannya?",
+            a: "Setelah data kami terima lengkap, undangan Anda akan selesai dalam waktu 1-24 jam saja. Sangat cepat dan praktis!"
+        },
+        {
+            q: "Apakah bisa melakukan revisi data?",
+            a: "Tentu saja! Kami memberikan layanan revisi sepuasnya untuk memastikan detail acara Anda benar dan sesuai keinginan."
+        },
+        {
+            q: "Bagaimana cara membagikan undangannya?",
+            a: "Anda akan menerima link unik (misal: garasicetak.com/wedding-anda). Link ini bisa langsung Anda bagikan melalui WhatsApp, Instagram, atau media sosial lainnya."
+        },
+        {
+            q: "Apakah masa aktif undangan terbatas?",
+            a: "Tidak! Undangan digital Anda akan aktif selamanya tanpa biaya perpanjangan."
+        }
     ];
 
     useEffect(() => {
@@ -265,6 +289,35 @@ export default function Home() {
                                 <span>Pasangan Bahagia</span>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* FAQ Section */}
+            <section id="faq" className="section-padding">
+                <div className="container">
+                    <div className="section-head reveal">
+                        <h2>Pertanyaan Sering Diajukan</h2>
+                        <p>Temukan jawaban untuk pertanyaan umum mengenai layanan kami.</p>
+                    </div>
+                    <div className="faq-list reveal">
+                        {faqData.map((item, index) => (
+                            <div 
+                                key={index} 
+                                className={`faq-item ${openFaq === index ? 'active' : ''}`}
+                            >
+                                <button 
+                                    className="faq-question"
+                                    onClick={() => setOpenFaq(openFaq === index ? null : index)}
+                                >
+                                    {item.q}
+                                    <ChevronDown className="faq-icon" size={20} />
+                                </button>
+                                <div className="faq-answer">
+                                    <p>{item.a}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
