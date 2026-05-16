@@ -272,6 +272,7 @@
     cursor: pointer;
     background: transparent;
     border: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .landing-page-root .tab-btn.active {
     background: var(--white);
@@ -290,9 +291,22 @@
     border-radius: var(--radius-lg);
     overflow: hidden;
     transition: all 0.3s ease;
+    animation: cardEntrance 0.5s ease-out backwards;
+}
+
+@keyframes cardEntrance {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.98); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1); 
+    }
 }
 .landing-page-root .tema-card:hover {
-    border-color: var(--gray);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 .landing-page-root .tema-img {
     aspect-ratio: 4/5;
