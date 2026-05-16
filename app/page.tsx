@@ -8,9 +8,9 @@ import {
     Share2, Users, Music, UserCheck, Camera, 
     Calendar, MapPin, Timer, Image as ImageIcon, Heart, 
     MessageSquare, Gift, Video, QrCode, Infinity,
-    Layout, FileEdit, ClipboardCheck, Send, LogIn, User, ChevronDown
+    Layout, FileEdit, ClipboardCheck, Send, ChevronDown
 } from 'lucide-react';
-import { authClient } from '@/lib/auth-client';
+
 
 export default function Home() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -19,7 +19,6 @@ export default function Home() {
     const [showModal, setShowModal] = useState(false);
     const [openFaq, setOpenFaq] = useState<number | null>(null);
     const router = useRouter();
-    const { data: session, isPending } = authClient.useSession();
 
     const features = [
         { icon: <Share2 size={24} />, title: 'Unlimited Share' },
@@ -116,17 +115,6 @@ export default function Home() {
                     </nav>
 
                     <div className="nav-actions">
-                        {!isPending && (
-                            session ? (
-                                <Link href="/dashboard" className="btn btn-primary btn-sm flex items-center gap-2">
-                                    <User size={14} /> Dashboard
-                                </Link>
-                            ) : (
-                                <Link href="/login" className="btn btn-outline btn-sm flex items-center gap-2">
-                                    <LogIn size={14} /> Login
-                                </Link>
-                            )
-                        )}
                         <div className="hamburger" onClick={() => setIsMenuOpen(!isMenuOpen)}>
                             <span></span><span></span><span></span>
                         </div>
