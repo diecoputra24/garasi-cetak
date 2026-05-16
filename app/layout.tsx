@@ -51,7 +51,9 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/images/logo.png', type: 'image/png' }
+      { url: '/images/logo.png' },
+      { url: '/images/logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/logo.png', sizes: '192x192', type: 'image/png' },
     ],
     shortcut: ['/images/logo.png'],
     apple: [
@@ -85,6 +87,17 @@ export default function RootLayout({
           <Suspense fallback={null}>
             <TopProgressBar />
           </Suspense>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "Organization",
+                "url": "https://garasicetak.com",
+                "logo": "https://garasicetak.com/images/logo.png"
+              })
+            }}
+          />
           {children}
           <Toaster richColors position="top-center" />
       </body>
