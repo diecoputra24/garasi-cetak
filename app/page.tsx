@@ -302,7 +302,9 @@ export default function Home() {
                                     <ChevronDown className="faq-icon" size={20} />
                                 </button>
                                 <div className="faq-answer">
-                                    <p>{item.a}</p>
+                                    <div>
+                                        <p>{item.a}</p>
+                                    </div>
                                 </div>
                             </div>
                         ))}
